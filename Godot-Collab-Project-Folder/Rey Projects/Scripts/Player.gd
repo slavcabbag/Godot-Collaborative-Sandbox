@@ -23,8 +23,8 @@ const WALK_EXPONENTIAL_RATE_REDUCER = 0.5 # a little tweaking number for walk sp
 
 #Change Self explanatory, have fun
 const EXPONENTIAL_WALK_SPEED = 3.0 # Speed when Shift is NOT held
-const SPRINT_SPEED_LIMIT = 12.0 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
-const WALK_SPEED_LIMIT = 7.0 # WALK_SPEED_LIMIT is max players speed can go while WALKING
+const SPRINT_SPEED_LIMIT = 12.5 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
+const WALK_SPEED_LIMIT = 5.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
 
 
 

@@ -189,6 +189,12 @@ offset_right = 138.0
 offset_bottom = 67.0
 text = "ea blah blah"
 
+[node name="Label2" type="Label" parent="Player/Head/Camera3D"]
+offset_top = 1053.0
+offset_right = 40.0
+offset_bottom = 1076.0
+text = "FPS"
+
 [node name="Map" type="Node" parent="."]
 
 [node name="BigGround box" type="CSGBox3D" parent="Map"]
@@ -778,6 +784,30 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18, 4
 [node name="Grave With GraveStone8" parent="right graves" instance=ExtResource("8_h2jun")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18, 4.43459e-05, 12.9681)
 
+[node name="Grave With GraveStone9" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, -8.03187)
+
+[node name="Grave With GraveStone10" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, -5.03187)
+
+[node name="Grave With GraveStone11" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, -2.03187)
+
+[node name="Grave With GraveStone12" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, 0.968134)
+
+[node name="Grave With GraveStone13" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, 3.96813)
+
+[node name="Grave With GraveStone14" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, 6.96813)
+
+[node name="Grave With GraveStone15" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, 9.96813)
+
+[node name="Grave With GraveStone16" parent="right graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 4.43459e-05, 12.9681)
+
 [node name="left graves" type="Node" parent="."]
 
 [node name="Grave With GraveStone9" parent="left graves" instance=ExtResource("8_h2jun")]
@@ -803,3 +833,27 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43
 
 [node name="Grave With GraveStone16" parent="left graves" instance=ExtResource("8_h2jun")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, -8.03187)
+
+[node name="Grave With GraveStone17" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, 12.9681)
+
+[node name="Grave With GraveStone18" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, 9.96813)
+
+[node name="Grave With GraveStone19" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, 6.96813)
+
+[node name="Grave With GraveStone20" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, 3.96813)
+
+[node name="Grave With GraveStone21" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, 0.968134)
+
+[node name="Grave With GraveStone22" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, -2.03187)
+
+[node name="Grave With GraveStone23" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, -5.03187)
+
+[node name="Grave With GraveStone24" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 23, 4.43459e-05, -8.03187)

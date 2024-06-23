@@ -15,6 +15,5 @@ func Get_Graves():
 	picked_grave.visible = true
 	for grave in graves:
 		if grave != picked_grave && grave.name != "grave2":
-			print(grave.name)
 			grave.queue_free()
 	

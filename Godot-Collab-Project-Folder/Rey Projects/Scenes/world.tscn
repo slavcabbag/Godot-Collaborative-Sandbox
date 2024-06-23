@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://ded8uhp38bur3"]
+[gd_scene load_steps=35 format=3 uid="uid://ded8uhp38bur3"]
 
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Player.gd" id="1_iud40"]
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Game Manager.gd" id="2_figup"]
 [ext_resource type="PackedScene" uid="uid://cel84av1gvwqx" path="res://Rey Projects/Scenes/road.tscn" id="4_d7hrc"]
 [ext_resource type="PackedScene" uid="uid://ejcbvus06vie" path="res://Rey Projects/Scenes/crypt.tscn" id="4_sacq6"]
 [ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="5_xvafh"]
-[ext_resource type="PackedScene" uid="uid://b8jeh0lrpv3ff" path="res://Rey Projects/Scenes/grave.tscn" id="7_rx160"]
 [ext_resource type="PackedScene" uid="uid://bn30056umgdwr" path="res://Rey Projects/Scenes/grave_with_grave_stone.tscn" id="8_h2jun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tdobv"]
@@ -781,20 +780,26 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18, 4
 
 [node name="left graves" type="Node" parent="."]
 
-[node name="grave8" parent="left graves" instance=ExtResource("7_rx160")]
-transform = Transform3D(2.62268e-07, 0, 2, 0, 2, 0, -2, 0, 2.62268e-07, 18, 4.43459e-05, -7.6141)
+[node name="Grave With GraveStone9" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, 12.9681)
 
-[node name="grave9" parent="left graves" instance=ExtResource("7_rx160")]
-transform = Transform3D(2.62268e-07, 0, 2, 0, 2, 0, -2, 0, 2.62268e-07, 18, 4.43459e-05, -3.6141)
+[node name="Grave With GraveStone10" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, 9.96813)
 
-[node name="grave10" parent="left graves" instance=ExtResource("7_rx160")]
-transform = Transform3D(2.62268e-07, 0, 2, 0, 2, 0, -2, 0, 2.62268e-07, 18, 4.43459e-05, 0.385897)
+[node name="Grave With GraveStone11" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, 6.96813)
 
-[node name="grave11" parent="left graves" instance=ExtResource("7_rx160")]
-transform = Transform3D(2.62268e-07, 0, 2, 0, 2, 0, -2, 0, 2.62268e-07, 18, 4.43459e-05, 4.3859)
+[node name="Grave With GraveStone12" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, 3.96813)
 
-[node name="grave12" parent="left graves" instance=ExtResource("7_rx160")]
-transform = Transform3D(2.62268e-07, 0, 2, 0, 2, 0, -2, 0, 2.62268e-07, 18, 4.43459e-05, 8.3859)
+[node name="Grave With GraveStone13" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, 0.968134)
 
-[node name="grave13" parent="left graves" instance=ExtResource("7_rx160")]
-transform = Transform3D(2.62268e-07, 0, 2, 0, 2, 0, -2, 0, 2.62268e-07, 18, 4.43459e-05, 12.3859)
+[node name="Grave With GraveStone14" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, -2.03187)
+
+[node name="Grave With GraveStone15" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, -5.03187)
+
+[node name="Grave With GraveStone16" parent="left graves" instance=ExtResource("8_h2jun")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18, 4.43459e-05, -8.03187)

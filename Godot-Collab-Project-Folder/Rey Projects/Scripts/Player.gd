@@ -4,35 +4,41 @@ extends CharacterBody3D
 # (VELOCITY): affects when not moving at all and in air
 # (SPEED COUNTER): affects only when moving, speed_counter gradually increases as you move
 
+#INERTIA : Lower = more, Higher = less
+
 
 # v Change these at your own risk v / Don't change
 var moving = false # is a direction being pressed (w,s,a,d)
 var exponential_speed = 1.0 # Initial Speed 
 var speed_counter = 0.0 # Initial Speed
 var Speed_Limit = 0.0 # Speed Limit switches between Sprint and Walking Speed Limits
-
+var speed
 
 #Medium Danger if changed / can experiment
+# v AFFECTS HOW FAST ACCELERATION IS VERY MUCH
 const EXPONENTIAL_RATE = 0.1 # How fast speed_counter grows
 # Used In: speed_counter += EXPONENTIAL_RATE
 const EXPONENTIAL_LIMIT = 0.5 # Max that the exponential can go
 const SPEED_COUNTER_DECELERATE = 7.0 # How fast the exponential rate decreases (SPEED COUNTER)
-const DECELERATION_SPEED = 1.0 # How fast the speed decreases when not holding a direction (INCREASES INERTIA) (VELOCITY)
-const WALK_EXPONENTIAL_RATE_REDUCER = 0.5 # a little tweaking number for walk speed decrease 
+const DECELERATION_SPEED = 2.0 # Higher = less # How fast the speed decreases when not holding a direction (INCREASES INERTIA) (VELOCITY)
+const WALK_EXPONENTIAL_RATE_REDUCER = 1.0 # a little tweaking number for walk speed decrease 
 # Used In: speed_counter += EXPONENTIAL_RATE * WALK_EXPONENTIAL_RATE_REDUCER [In walk part of sprint code] 
 
 #Change Self explanatory, have fun
 const EXPONENTIAL_WALK_SPEED = 2.0 # Speed when Shift is NOT held
-const SPRINT_SPEED_LIMIT = 12.5 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
-const WALK_SPEED_LIMIT = 3.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
+const SPRINT_SPEED_LIMIT = 9 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
+const WALK_SPEED_LIMIT = 4.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
 # CHANGING ONLY CHANGES START VALUE
 var Fast_Sprint_Inertia = 3.5 # How much drag/inertia you will have when you are at 
+var Walk_Inertia = 5.0
 # I made it so Inertia gets lower the less your speed is so its not rigid
 # Slows your turns at high speeds 
-#speeds higher than FAST_SPEED
-const FAST_SPEED = 7.0 # How fast you have to go before being affected by inertia
+# speeds higher than FAST_SPEED
+const FAST_SPEED = 6.0 # How fast you have to go before being affected by inertia
+# v Still can change v Affects how fast you speed up kinda, tweaks 
+const WALK_SPEED = 4.0
+const SPRINT_SPEED = 7.0
 
-var speed
 
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.0018
@@ -82,9 +88,10 @@ func _physics_process(delta):
 	# Handle Sprint.
 	if Input.is_action_pressed("Sprint"):
 		Speed_Limit = SPRINT_SPEED_LIMIT 
-		speed = SPRINT_SPEED_LIMIT
+		speed = SPRINT_SPEED
 		
-		# While Sprinting + Moving, accelerate to SPEED_LIMIT at a rate of EXPONENTIAL_RATE
+		# While SPRINTING + MOVING,
+		# accelerate to SPEED_LIMIT at a rate of EXPONENTIAL_RATE
 		if moving == true:
 			#Custom
 			var clamped_exponential_speed 
@@ -96,13 +103,12 @@ func _physics_process(delta):
 			exponential_speed = clamp(exponential_speed,EXPONENTIAL_WALK_SPEED,Speed_Limit) #SPEED_LIMIT is max players speed can go 
 			#^block of code that has to be kept together
 	
-	# If walking, set speed to EXPONENTIAL_WALK_SPEED
+	# If MOVING/WALKING,
+	# set speed to EXPONENTIAL_WALK_SPEED
 	else:
 		
-		
-		
-		speed = WALK_SPEED_LIMIT
 		Speed_Limit = WALK_SPEED_LIMIT
+		speed = WALK_SPEED
 		#Custom
 		var clamped_exponential_speed 
 		var clamped_speed_counter
@@ -123,6 +129,7 @@ func _physics_process(delta):
 	label.add_theme_color_override("font_color",Color(1.0,1.0,1.0,1.0))
 	if is_on_floor():
 		
+		#INERTIA CONTROL
 		if direction:
 			moving = true
 			
@@ -134,8 +141,8 @@ func _physics_process(delta):
 				velocity.z = lerp(velocity.z, direction.z * exponential_speed, delta * Fast_Sprint_Inertia)
 			else:
 				
-				velocity.x = direction.x * exponential_speed 
-				velocity.z = direction.z * exponential_speed  
+				velocity.x = lerp(velocity.x, direction.x * exponential_speed/1.25, delta * Walk_Inertia)
+				velocity.z = lerp(velocity.z, direction.z * exponential_speed/1.25, delta * Walk_Inertia) 
 			label.add_theme_color_override("font_color",Color(0.5,0.1,0.5,1.0))
 			
 		else:

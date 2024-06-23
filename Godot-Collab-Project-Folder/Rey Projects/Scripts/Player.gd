@@ -22,23 +22,18 @@ const WALK_EXPONENTIAL_RATE_REDUCER = 0.5 # a little tweaking number for walk sp
 # Used In: speed_counter += EXPONENTIAL_RATE * WALK_EXPONENTIAL_RATE_REDUCER [In walk part of sprint code] 
 
 #Change Self explanatory, have fun
-const EXPONENTIAL_WALK_SPEED = 3.0 # Speed when Shift is NOT held
+const EXPONENTIAL_WALK_SPEED = 2.0 # Speed when Shift is NOT held
 const SPRINT_SPEED_LIMIT = 12.5 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
-const WALK_SPEED_LIMIT = 5.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
-
-
-
-
+const WALK_SPEED_LIMIT = 3.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
+# CHANGING ONLY CHANGES START VALUE
+var Fast_Sprint_Inertia = 3.5 # How much drag/inertia you will have when you are at 
 # I made it so Inertia gets lower the less your speed is so its not rigid
 # Slows your turns at high speeds 
-# CHANGING ONLY CHANGES START VALUE
-var Fast_Sprint_Inertia = 4.0 # How much drag/inertia you will have when you are at 
 #speeds higher than FAST_SPEED
-const FAST_SPEED = 11.0 # How fast you have to go before being affected by inertia
+const FAST_SPEED = 7.0 # How fast you have to go before being affected by inertia
 
 var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 10.0
+
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.0018
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -71,10 +66,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
-	# exit out of game
-	if Input.is_action_just_pressed("Menu-Escape"):
-		queue_free()
-		get_tree().quit()
+	
 	 
 	# Add the gravity.
 	if not is_on_floor():
@@ -89,9 +81,8 @@ func _physics_process(delta):
 		speed_counter = 0.1
 	# Handle Sprint.
 	if Input.is_action_pressed("Sprint"):
-		speed = SPRINT_SPEED
 		Speed_Limit = SPRINT_SPEED_LIMIT 
-		
+		speed = SPRINT_SPEED_LIMIT
 		
 		# While Sprinting + Moving, accelerate to SPEED_LIMIT at a rate of EXPONENTIAL_RATE
 		if moving == true:
@@ -110,8 +101,7 @@ func _physics_process(delta):
 		
 		
 		
-		
-		speed = WALK_SPEED
+		speed = WALK_SPEED_LIMIT
 		Speed_Limit = WALK_SPEED_LIMIT
 		#Custom
 		var clamped_exponential_speed 
@@ -169,7 +159,7 @@ func _physics_process(delta):
 	camera.transform.origin = _headbob(t_bob)
 
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED_LIMIT * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	

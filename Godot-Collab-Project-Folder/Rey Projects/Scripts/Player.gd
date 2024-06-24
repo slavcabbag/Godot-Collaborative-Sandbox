@@ -12,7 +12,7 @@ var speed_limit_lerp = false # Starts when sprint is released,
 	# ^used to make you slow to a walk pace instead of instantly
 var moving = false # is a direction being pressed (w,s,a,d)
 var exponential_speed = 1.0 # Initial Speed 
-var speed_counter = 0.0 # Initial Speed
+var speed_counter = 2.0 # Initial Speed
 var Speed_Limit = 0.0 # Speed Limit switches between Sprint and Walking Speed Limits
 var speed
 
@@ -20,13 +20,25 @@ var speed
 # v AFFECTS HOW FAST ACCELERATION IS VERY MUCH
 const EXPONENTIAL_RATE = 0.1 # How fast speed_counter grows
 # Used In: speed_counter += EXPONENTIAL_RATE
-const EXPONENTIAL_LIMIT = 0.5 # Max that the exponential can go
+const EXPONENTIAL_LIMIT = 10.0 # Max that the exponential can go
 const SPEED_COUNTER_DECELERATE = 7.0 # How fast the exponential rate decreases (SPEED COUNTER)
 const DECELERATION_SPEED = 2.0 # Higher = less # How fast the speed decreases when not holding a direction (INCREASES INERTIA) (VELOCITY)
 const WALK_EXPONENTIAL_RATE_REDUCER = 1.0 # a little tweaking number for walk speed decrease 
 # Used In: speed_counter += EXPONENTIAL_RATE * WALK_EXPONENTIAL_RATE_REDUCER [In walk part of sprint code] 
+const RESUME_SPRINT_BUFFER = 9.0 # When sprint is pressed again, can resume sprint if
+	# Speed_limit is higher than sprint speed limit - buffer, higher the buffer lower 
+	# the threshold is to resume sprint
+# Used in 
+##
+#	if Input.is_action_just_pressed("Sprint"):
+#		if speed_limit_lerp  && Speed_Limit > SPRINT_SPEED_LIMIT - RESUME_SPRINT_BUFFER:
+#			pass
+#		else:
+#			speed_counter = 0.1
+##
 
 #Change Self explanatory, have fun
+const SPRINT_TO_WALK_SLOWDOWN_RATE = 7.0 # Rate you switch to walk speed after releasing sprint
 const EXPONENTIAL_WALK_SPEED = 2.0 # Speed when Shift is NOT held
 const SPRINT_SPEED_LIMIT = 9.0 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
 const WALK_SPEED_LIMIT = 4.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
@@ -82,9 +94,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Reset Speed_Counter on Sprint Pressed
+	# Reset Speed_Counter on Sprint Pressed 
+		#unless its really close to the sprint limit already
+	
+	# When sprint is pressed again, can resume sprint if
+	# Speed_Limit is higher than sprint speed limit - buffer, higher the buffer lower 
+	# the threshold is to resume sprint
 	if Input.is_action_just_pressed("Sprint"):
-		speed_counter = 0.1
+		if speed_limit_lerp  && Speed_Limit > SPRINT_SPEED_LIMIT - RESUME_SPRINT_BUFFER:
+			pass
+		else:
+			speed_counter = 0.1
 	# Handle Sprint.
 	if Input.is_action_pressed("Sprint"):
 		Speed_Limit = SPRINT_SPEED_LIMIT 
@@ -97,8 +117,8 @@ func _physics_process(delta):
 			var clamped_exponential_speed 
 			var clamped_speed_counter
 			clamped_exponential_speed = clamp(speed/2.0 + speed_counter/5.0 * exponential_speed, 0.0, 10.0) 
-			clamped_speed_counter = clamp(speed_counter, 0.0, EXPONENTIAL_LIMIT) #Max that the exponential can go
 			speed_counter += EXPONENTIAL_RATE #how fast speed_counter grows 
+			speed_counter = clamp(speed_counter, 2.0, EXPONENTIAL_LIMIT) #Max that the exponential can go
 			exponential_speed = speed/2 + speed_counter/5.0 * clamped_exponential_speed
 			exponential_speed = clamp(exponential_speed,speed/2,Speed_Limit) #SPEED_LIMIT is max players speed can go 
 			#^block of code that has to be kept together
@@ -111,9 +131,10 @@ func _physics_process(delta):
 	#until the walk speed is 0.5 from the bottom, then set the speed_limit to walk_speed 
 	else:
 		if speed_limit_lerp && Speed_Limit > WALK_SPEED_LIMIT+0.5:
-			Speed_Limit = lerp(Speed_Limit, WALK_SPEED_LIMIT, delta * 3.0)
+			Speed_Limit = lerp(Speed_Limit, WALK_SPEED_LIMIT, delta * SPRINT_TO_WALK_SLOWDOWN_RATE)
 		else:
 			Speed_Limit = WALK_SPEED_LIMIT
+			speed_limit_lerp = false
 		
 		speed = WALK_SPEED
 	
@@ -121,8 +142,8 @@ func _physics_process(delta):
 		var clamped_exponential_speed 
 		var clamped_speed_counter
 		clamped_exponential_speed = clamp(speed/2.0 + speed_counter/5.0 * exponential_speed, 0.0, 10.0) 
-		clamped_speed_counter = clamp(speed_counter, 0.0, EXPONENTIAL_LIMIT) #Max that the exponential can go
 		speed_counter += EXPONENTIAL_RATE * WALK_EXPONENTIAL_RATE_REDUCER #how fast speed_counter grows * a little tweaking number for walk
+		speed_counter = clamp(speed_counter, 2.0, EXPONENTIAL_LIMIT) #Max that the exponential can go
 		exponential_speed = speed/2 + speed_counter/5.0 * clamped_exponential_speed
 		exponential_speed = clamp(exponential_speed,speed/2,Speed_Limit) #SPEED_LIMIT is max players speed can go 
 		#^block of code that has to be kept together
@@ -166,7 +187,8 @@ func _physics_process(delta):
 			#used \ to continue long expression
 			"\n direction x: " + str(direction.x) + "\n direction z: " + str(direction.z) \
 			+ "\n \n exponential_speed: " + str(exponential_speed) \
-			+ "\n \n speed_counter" \
+			+ "\n \n speed_counter: " + str(speed_counter)\
+			+ "\n \n speed_limit_lerp: " + str(speed_limit_lerp) \
 			+ "\n \n " + str(moving)
 
 	# head bob

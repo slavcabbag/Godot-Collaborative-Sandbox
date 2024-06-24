@@ -8,6 +8,8 @@ extends CharacterBody3D
 
 
 # v Change these at your own risk v / Don't change
+var speed_limit_lerp = false # Starts when sprint is released, 
+	# ^used to make you slow to a walk pace instead of instantly
 var moving = false # is a direction being pressed (w,s,a,d)
 var exponential_speed = 1.0 # Initial Speed 
 var speed_counter = 0.0 # Initial Speed
@@ -26,7 +28,7 @@ const WALK_EXPONENTIAL_RATE_REDUCER = 1.0 # a little tweaking number for walk sp
 
 #Change Self explanatory, have fun
 const EXPONENTIAL_WALK_SPEED = 2.0 # Speed when Shift is NOT held
-const SPRINT_SPEED_LIMIT = 9 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
+const SPRINT_SPEED_LIMIT = 9.0 # SPRINT_SPEED_LIMIT is max players speed can go while SPRINTING
 const WALK_SPEED_LIMIT = 4.5 # WALK_SPEED_LIMIT is max players speed can go while WALKING
 # CHANGING ONLY CHANGES START VALUE
 var Fast_Sprint_Inertia = 3.5 # How much drag/inertia you will have when you are at 
@@ -36,7 +38,7 @@ var Walk_Inertia = 5.0
 # speeds higher than FAST_SPEED
 const FAST_SPEED = 6.0 # How fast you have to go before being affected by inertia
 # v Still can change v Affects how fast you speed up kinda, tweaks 
-const WALK_SPEED = 4.0
+const WALK_SPEED = 5.0
 const SPRINT_SPEED = 7.0
 
 
@@ -52,7 +54,7 @@ var t_bob = 0.0 # determine how far along the sine wave we are
 
 # FOV Variables
 const BASE_FOV = 75.0
-const FOV_CHANGE = 1.5
+const FOV_CHANGE = 2.5
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -68,12 +70,10 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-70), deg_to_rad(70))
 
 func _physics_process(delta):
 	
-	
-	 
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -100,15 +100,23 @@ func _physics_process(delta):
 			clamped_speed_counter = clamp(speed_counter, 0.0, EXPONENTIAL_LIMIT) #Max that the exponential can go
 			speed_counter += EXPONENTIAL_RATE #how fast speed_counter grows 
 			exponential_speed = speed/2 + speed_counter/5.0 * clamped_exponential_speed
-			exponential_speed = clamp(exponential_speed,EXPONENTIAL_WALK_SPEED,Speed_Limit) #SPEED_LIMIT is max players speed can go 
+			exponential_speed = clamp(exponential_speed,speed/2,Speed_Limit) #SPEED_LIMIT is max players speed can go 
 			#^block of code that has to be kept together
 	
-	# If MOVING/WALKING,
-	# set speed to EXPONENTIAL_WALK_SPEED
+	#When sprint is just realeased start slowing down to walk pace
+	elif Input.is_action_just_released("Sprint"):
+		speed_limit_lerp = true
+	
+	# If slowing_down_to_walk_pace = true (speed_limit_lerp), start doing that
+	#until the walk speed is 0.5 from the bottom, then set the speed_limit to walk_speed 
 	else:
+		if speed_limit_lerp && Speed_Limit > WALK_SPEED_LIMIT+0.5:
+			Speed_Limit = lerp(Speed_Limit, WALK_SPEED_LIMIT, delta * 3.0)
+		else:
+			Speed_Limit = WALK_SPEED_LIMIT
 		
-		Speed_Limit = WALK_SPEED_LIMIT
 		speed = WALK_SPEED
+	
 		#Custom
 		var clamped_exponential_speed 
 		var clamped_speed_counter
@@ -116,7 +124,7 @@ func _physics_process(delta):
 		clamped_speed_counter = clamp(speed_counter, 0.0, EXPONENTIAL_LIMIT) #Max that the exponential can go
 		speed_counter += EXPONENTIAL_RATE * WALK_EXPONENTIAL_RATE_REDUCER #how fast speed_counter grows * a little tweaking number for walk
 		exponential_speed = speed/2 + speed_counter/5.0 * clamped_exponential_speed
-		exponential_speed = clamp(exponential_speed,EXPONENTIAL_WALK_SPEED,Speed_Limit) #SPEED_LIMIT is max players speed can go 
+		exponential_speed = clamp(exponential_speed,speed/2,Speed_Limit) #SPEED_LIMIT is max players speed can go 
 		#^block of code that has to be kept together
 		
 	

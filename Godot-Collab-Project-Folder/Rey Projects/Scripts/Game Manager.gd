@@ -15,4 +15,6 @@ func _physics_process(_delta):
 func _process(_delta):
 	var fps = Engine.get_frames_per_second()
 	label_2.text = "FPS: " + str(fps)
+	if Input.is_key_pressed(KEY_F):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 

@@ -15,6 +15,7 @@ var exponential_speed = 1.0 # Initial Speed
 var speed_counter = 2.0 # Initial Speed
 var Speed_Limit = 0.0 # Speed Limit switches between Sprint and Walking Speed Limits
 var speed
+const FOV_CHANGE = 2.5
 
 #Medium Danger if changed / can experiment
 # v AFFECTS HOW FAST ACCELERATION IS VERY MUCH
@@ -60,13 +61,15 @@ const SENSITIVITY = 0.0018
 var gravity = 9.8
 
 # bob variables
+var ramp_up_on_move = 0.0 # lerp counter that ramps up to align the cameras position
+# with the zero'd position slowly, not jankily
 const BOB_FREQUENCY = 2.0
 const BOB_AMPLITUDE = 0.08
 var t_bob = 0.0 # determine how far along the sine wave we are
 
 # FOV Variables
 const BASE_FOV = 75.0
-const FOV_CHANGE = 2.5
+
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -189,22 +192,44 @@ func _physics_process(delta):
 			+ "\n \n exponential_speed: " + str(exponential_speed) \
 			+ "\n \n speed_counter: " + str(speed_counter)\
 			+ "\n \n speed_limit_lerp: " + str(speed_limit_lerp) \
-			+ "\n \n " + str(moving)
+			+ "\n \n camera_fov: " + str(camera.fov) \
+			+ "\n \n t_bob: " + str(t_bob) \
+			+ "\n \n _headbob function: " + str(_headbob(delta,t_bob))
 
 	# head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	camera.transform.origin = _headbob(delta,t_bob)
 
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED_LIMIT * 2)
-	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped * (camera.transform.origin.length()/1.5) 
+	# (camera.transform.origin.length()) is custom
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 
 	move_and_slide()
 
-func _headbob(time) -> Vector3:
-	var pos = Vector3.ZERO
-	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
-	pos.x = cos(time * BOB_FREQUENCY/2) * BOB_AMPLITUDE
+func _headbob(delta, time) -> Vector3:
+	var pos = camera.transform.origin
+	var pos_camera_moving = Vector3.ZERO
+	var sin_t_bob = clamp(sin(t_bob),0.0,1.0)
+
+	label.text += "\n\n " + str(sin_t_bob) \
+	+ "\n\n " + str(clamp(speed_counter -1.0 / EXPONENTIAL_LIMIT*2, 0.0, 1.0))
+
+	if moving:
+		#headbob movement: the headbobbing is an infinity sign because 
+		ramp_up_on_move+= 0.001 #ramp_up_on_move+= 0.1 <--bug amount
+		clamp(ramp_up_on_move,0.0,1.0)
+		
+		pos_camera_moving.y = -sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
+		pos_camera_moving.x = cos(time * BOB_FREQUENCY/2) * BOB_AMPLITUDE
+		pos.y = pos_camera_moving.y
+		pos.x = pos_camera_moving.x
+		#funny bug if this V
+		#pos.y = lerp(pos.y,pos_camera_moving.y, ramp_up_on_move)
+		#pos.x = lerp(pos.x,pos_camera_moving.x, ramp_up_on_move)
+	else:
+		pos.y = lerp(pos.y, 0.0, delta * 3.0)
+		pos.x = lerp(pos.x, 0.0, delta * 3.0)
 	return pos

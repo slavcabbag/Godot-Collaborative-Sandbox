@@ -1,5 +1,14 @@
 extends CharacterBody3D
 
+#blah blah heres the fun stuff
+
+var bug1 = false #ACTIVATE: just keep running around for a bit until you go BRRRR
+	#makes headbob offset go crazy when ramp_up_on_move 
+	# gets to about 1.4-1.6.  If I set the headbob time value to a certain
+	# amount I can affect the direction, thus I can control if the headbob
+	# offset reset goes from the bottom of the map or
+	# from the top, adding a cool effect
+
 # Custom speeds
 # (VELOCITY): affects when not moving at all and in air
 # (SPEED COUNTER): affects only when moving, speed_counter gradually increases as you move
@@ -175,7 +184,7 @@ func _physics_process(delta):
 				
 				velocity.x = lerp(velocity.x, direction.x * exponential_speed/1.25, delta * Walk_Inertia)
 				velocity.z = lerp(velocity.z, direction.z * exponential_speed/1.25, delta * Walk_Inertia) 
-			label.add_theme_color_override("font_color",Color(0.5,0.1,0.5,1.0))
+			label.add_theme_color_override("font_color",Color(0.0,0.6,0.0,1.0))
 			
 		else:
 			moving = false
@@ -227,17 +236,30 @@ func _headbob(delta, time) -> Vector3:
 			# the camneras original position is still a separate thing so I also have to 
 			# slowly move the camera up to that point and bring it back to that 
 			# original camera position so everything stays butter smooth NO JITTERS!!
-		ramp_up_on_move+= 0.001 #ramp_up_on_move+= 0.1 <--bug amount
-		clamp(ramp_up_on_move,0.0,1.0)
+		var lerp_ramp_up_value
+		if not bug1:
+			ramp_up_on_move+= 0.001 * abs(velocity.x)
+			ramp_up_on_move = clamp(ramp_up_on_move,0.0,1.0)
+			lerp_ramp_up_value = clamp(delta*100.0*ramp_up_on_move, 0.0, 1.0)
+		else:
+			lerp_ramp_up_value = clamp(delta*100.0*ramp_up_on_move, 0.0, 200.0)
+			ramp_up_on_move+= 0.001 * abs(velocity.x)
+			
+		
+		
+		
+		
+		
+		label.text += "\n \n ramp_up_on_move: " + str(ramp_up_on_move) \
+		+ "      lerp_ramp_up_value: " + str(lerp_ramp_up_value)
 		
 		pos_camera_moving.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
 		pos_camera_moving.x = cos(time * BOB_FREQUENCY/2) * BOB_AMPLITUDE
-		pos.y = pos_camera_moving.y
-		pos.x = pos_camera_moving.x
-		#funny bug if this V
-		#pos.y = lerp(pos.y,pos_camera_moving.y, ramp_up_on_move)
-		#pos.x = lerp(pos.x,pos_camera_moving.x, ramp_up_on_move)
+		pos.y = lerp(pos.y,pos_camera_moving.y, lerp_ramp_up_value)
+		pos.x = lerp(pos.x,pos_camera_moving.x, lerp_ramp_up_value)
+		
 	else:
 		pos.y = lerp(pos.y, 0.0, delta * 3.0)
 		pos.x = lerp(pos.x, 0.0, delta * 3.0)
+		ramp_up_on_move = 0.01
 	return pos

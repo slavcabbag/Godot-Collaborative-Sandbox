@@ -238,12 +238,12 @@ func _headbob(delta, time) -> Vector3:
 			# original camera position so everything stays butter smooth NO JITTERS!!
 		var lerp_ramp_up_value
 		if not bug1:
-			ramp_up_on_move+= 0.001 * abs(velocity.x)
+			ramp_up_on_move+= 0.0005 * (abs(velocity.x) + abs(velocity.z))
 			ramp_up_on_move = clamp(ramp_up_on_move,0.0,1.0)
 			lerp_ramp_up_value = clamp(delta*100.0*ramp_up_on_move, 0.0, 1.0)
 		else:
 			lerp_ramp_up_value = clamp(delta*100.0*ramp_up_on_move, 0.0, 200.0)
-			ramp_up_on_move+= 0.001 * abs(velocity.x)
+			ramp_up_on_move+= 0.0005 * (abs(velocity.x) + abs(velocity.z))
 			
 		
 		

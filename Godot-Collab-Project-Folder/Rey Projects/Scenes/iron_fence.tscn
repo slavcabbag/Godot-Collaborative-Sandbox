@@ -44,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_6ins5")
 size = Vector3(0.884766, 0.74353, 0.12085)
 
 [node name="iron-fence2" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.450372)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.450372)
 
 [node name="iron-fence" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_8nun4")

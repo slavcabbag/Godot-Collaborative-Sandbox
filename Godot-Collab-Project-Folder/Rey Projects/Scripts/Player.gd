@@ -218,11 +218,19 @@ func _headbob(delta, time) -> Vector3:
 	+ "\n\n " + str(clamp(speed_counter -1.0 / EXPONENTIAL_LIMIT*2, 0.0, 1.0))
 
 	if moving:
-		#headbob movement: the headbobbing is an infinity sign because 
+		# headbob movement: the headbobbing's head movement is an infinity sign because of sin and cos
+			# because it used to stay at a certain change in transform your head would be
+			# smaller or taller if you stopped moving at a certain time. I didn't like this
+			# because it also means you can clip through gemoetry if nothing combats it
+			# to stop this I reset the camera position to 0 slowly and over time 
+			# when the player stops moving.
+			# the camneras original position is still a separate thing so I also have to 
+			# slowly move the camera up to that point and bring it back to that 
+			# original camera position so everything stays butter smooth NO JITTERS!!
 		ramp_up_on_move+= 0.001 #ramp_up_on_move+= 0.1 <--bug amount
 		clamp(ramp_up_on_move,0.0,1.0)
 		
-		pos_camera_moving.y = -sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
+		pos_camera_moving.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE
 		pos_camera_moving.x = cos(time * BOB_FREQUENCY/2) * BOB_AMPLITUDE
 		pos.y = pos_camera_moving.y
 		pos.x = pos_camera_moving.x

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ejcbvus06vie"]
+[gd_scene load_steps=22 format=3 uid="uid://ejcbvus06vie"]
 
 [ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="1_f1pq7"]
 
@@ -42,9 +42,6 @@ shadow_mesh = SubResource("ArrayMesh_sbqux")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jaedf"]
 albedo_color = Color(0.233459, 0.253389, 0.348152, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lu1j1"]
-points = PackedVector3Array(0.3752, 0.0335885, 0.526291, 0.282722, 0.39197, 0.464173, 0.335976, 0.0335885, 0.5656, 0.3752, 0, 0.526291, 0.3752, 0.0335885, -0.526402, -0.00051415, 0.531948, 0.464173, 0.282722, 0.39197, -0.464284, 0.335976, 0, 0.5656, -0.336049, 0.0335885, 0.5656, 0.3752, 0, -0.526402, 0.335976, 0.0335885, -0.5656, -0.282796, 0.39197, 0.464173, -0.00051415, 0.531948, -0.464284, -0.336049, 0, 0.5656, -0.3752, 0.0335885, 0.526291, 0.335976, 0, -0.5656, -0.336049, 0.0335885, -0.5656, -0.282796, 0.39197, -0.464284, -0.3752, 0, 0.526291, -0.3752, 0.0335885, -0.526402, -0.336049, 0, -0.5656, -0.3752, 0, -0.526402)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwb5s"]
 resource_name = "colormap"
@@ -175,6 +172,15 @@ _data = {
 "open-and-close": SubResource("Animation_5w0a2")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_idwkm"]
+size = Vector3(5.96289, 0.268555, 9.00488)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23bfg"]
+size = Vector3(3.52344, 2.625, 6.58032)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1lpb"]
+size = Vector3(0.52832, 2.68457, 0.516602)
+
 [node name="crypt2" type="StaticBody3D"]
 
 [node name="crypt" type="MeshInstance3D" parent="."]
@@ -182,10 +188,6 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 mesh = SubResource("ArrayMesh_x0rrc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_jaedf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_lu1j1")
 
 [node name="crypt-small-entrance-alternative2" type="Node3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.0014081, 0.31543, 3.28975)
@@ -221,3 +223,27 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hr3xr")
 libraries = {
 "": SubResource("AnimationLibrary_ghu02")
 }
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141498, 0)
+shape = SubResource("BoxShape3D_idwkm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76479, 0)
+shape = SubResource("BoxShape3D_23bfg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71361, 1.71351, 3.25957)
+shape = SubResource("BoxShape3D_p1lpb")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73587, 1.71351, 3.25957)
+shape = SubResource("BoxShape3D_p1lpb")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73587, 1.71351, -3.24962)
+shape = SubResource("BoxShape3D_p1lpb")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72432, 1.71351, -3.24962)
+shape = SubResource("BoxShape3D_p1lpb")

@@ -1210,16 +1210,16 @@ transform = Transform3D(0.25, 0, -0.433013, 0, 0.5, 0, 0.433013, 0, 0.25, -5.310
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, -3.54035, -0.108582, -6.07552)
 
 [node name="lightpost-single6" parent="." instance=ExtResource("14_7hc6w")]
-transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -14.2756, -0.108582, 0.59028)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -15.5987, -0.108582, 2.59028)
 
 [node name="lightpost-single7" parent="." instance=ExtResource("14_7hc6w")]
-transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -14.2756, -0.108582, 2.59028)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -15.5987, -0.108582, 0.59028)
 
 [node name="lightpost-single8" parent="." instance=ExtResource("14_7hc6w")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 14.3354, -0.108582, 3.59028)
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 15.5398, -0.108582, 1.59028)
 
 [node name="lightpost-single9" parent="." instance=ExtResource("14_7hc6w")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 14.3354, -0.108582, 1.59028)
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 15.5398, -0.108582, 3.59028)
 
 [node name="lightpost-single10" parent="." instance=ExtResource("14_7hc6w")]
 transform = Transform3D(1.73205, 0, 1, 0, 2, 0, -1, 0, 1.73205, 6.33538, -0.108582, 4.04589)

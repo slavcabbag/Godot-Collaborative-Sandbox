@@ -25,7 +25,6 @@ var speed_counter = 2.0 # Initial Speed
 var Speed_Limit = 0.0 # Speed Limit switches between Sprint and Walking Speed Limits
 var speed
 const FOV_CHANGE = 2.5
-
 #Medium Danger if changed / can experiment
 # v AFFECTS HOW FAST ACCELERATION IS VERY MUCH
 const EXPONENTIAL_RATE = 0.1 # How fast speed_counter grows
@@ -192,6 +191,8 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
 	else:
+		speed_counter -= 0.045 * speed_counter # handles not accelerating while in th air and moving
+		
 		#speed_counter = lerp(speed_counter,0.0, delta * 3.0) #Custom
 		velocity.x = lerp(velocity.x, direction.x * exponential_speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * exponential_speed, delta * 3.0)

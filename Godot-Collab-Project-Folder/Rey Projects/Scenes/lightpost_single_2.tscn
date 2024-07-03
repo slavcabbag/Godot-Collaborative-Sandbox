@@ -57,7 +57,7 @@ size = Vector3(0.12793, 1.2041, 0.149414)
 size = Vector3(0.0478516, 0.0935059, 0.327148)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s7hom"]
-size = Vector3(0.142578, 0.220703, 0.134766)
+size = Vector3(0.142578, 0.207031, 0.134766)
 
 [node name="lightpost-single2" type="StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -83,5 +83,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26115, 0.126202)
 shape = SubResource("BoxShape3D_n2kwy")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08268, 0.239119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09497, 0.239119)
 shape = SubResource("BoxShape3D_s7hom")

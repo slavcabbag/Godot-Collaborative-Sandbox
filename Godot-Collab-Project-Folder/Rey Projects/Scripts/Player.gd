@@ -102,8 +102,11 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_key_pressed(KEY_Q) and Input.is_action_just_pressed("Jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY * 2
+	elif Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 
 	# Reset Speed_Counter on Sprint Pressed 
 		#unless its really close to the sprint limit already
@@ -191,7 +194,7 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
 	else:
-		speed_counter -= 0.045 * speed_counter # handles not accelerating while in th air and moving
+		speed_counter -= 0.045 * speed_counter # handles not accelerating while in the air and moving
 		
 		#speed_counter = lerp(speed_counter,0.0, delta * 3.0) #Custom
 		velocity.x = lerp(velocity.x, direction.x * exponential_speed, delta * 3.0)

@@ -1,0 +1,8 @@
+idea: unexpected item betrayal
+
+research'd github repository storage limits https://www.reddit.com/r/github/comments/xn8y97/is_there_a_limit_to_how_big_a_github_repo_can_be/
+
+concept> items you would usually pick up chase you and replace your current weapon held, making it pain
+idea: a dark colored sword levitates in the air, it looks like a usual item you would pick up. Instead it flies into the player's heart, impaling them in the middle of their chest, they look down, pull it out and this is now the players weapon
+
+can even emphasize it by putting it into the inventory, or it flying out of its scabbard saying, "dark sword is reacting" and make it do the animation from there.

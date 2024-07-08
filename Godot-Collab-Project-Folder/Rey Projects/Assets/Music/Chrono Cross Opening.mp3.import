@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddantaxvkem7u"
+path="res://.godot/imported/Chrono Cross Opening.mp3-e20aa97ac0368c06ee3ef24e4f94688d.mp3str"
+
+[deps]
+
+source_file="res://Rey Projects/Assets/Music/Chrono Cross Opening.mp3"
+dest_files=["res://.godot/imported/Chrono Cross Opening.mp3-e20aa97ac0368c06ee3ef24e4f94688d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

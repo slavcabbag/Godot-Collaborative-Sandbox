@@ -35,4 +35,4 @@ func set_volume_db_from_song(song):
 	elif song == CHRONO_CROSS_OPENING:
 		return -12.5
 	elif song == SUPER_SMASH_BROS_4_MAIN_THEME:
-		return -13.5
+		return -15.5

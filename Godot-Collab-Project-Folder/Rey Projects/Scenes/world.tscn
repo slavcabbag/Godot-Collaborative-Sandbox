@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://ded8uhp38bur3"]
+[gd_scene load_steps=33 format=3 uid="uid://ded8uhp38bur3"]
 
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Player.gd" id="1_iud40"]
+[ext_resource type="AudioStream" uid="uid://xqqunjovym74" path="res://Rey Projects/Assets/Music/Elden Ring Title Screen Theme.mp3" id="2_cuiuy"]
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Game Manager.gd" id="2_figup"]
-[ext_resource type="AudioStream" uid="uid://xqqunjovym74" path="res://Rey Projects/Assets/Music/Elden Ring Title Screen Theme.mp3" id="3_x54m2"]
+[ext_resource type="Script" path="res://Rey Projects/Scripts/Editor Music.gd" id="2_l6c1c"]
 [ext_resource type="PackedScene" uid="uid://cel84av1gvwqx" path="res://Rey Projects/Scenes/road.tscn" id="4_d7hrc"]
 [ext_resource type="PackedScene" uid="uid://ejcbvus06vie" path="res://Rey Projects/Scenes/crypt.tscn" id="4_sacq6"]
 [ext_resource type="PackedScene" uid="uid://dr12j14sgno3i" path="res://Rey Projects/Scenes/brick_wall_end_2.tscn" id="6_fhtwt"]
@@ -73,9 +74,10 @@ script = ExtResource("2_figup")
 [node name="Editor Music" type="Node" parent="Game Manager"]
 
 [node name="Editor Intro Theme" type="AudioStreamPlayer" parent="Game Manager/Editor Music"]
-stream = ExtResource("3_x54m2")
+stream = ExtResource("2_cuiuy")
 volume_db = -3.5
 mix_target = 2
+script = ExtResource("2_l6c1c")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)

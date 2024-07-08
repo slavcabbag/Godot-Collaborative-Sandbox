@@ -1,23 +1,22 @@
+@tool
+extends AudioStreamPlayer
 
-extends EditorScript
-
-var play_editor_intro = true
+var play_editor_intro_on_launch = true
+var has_played_intro_music = false
 
 const ELDEN_RING_TITLE_SCREEN_THEME = preload("res://Rey Projects/Assets/Music/Elden Ring Title Screen Theme.mp3")
 const CHRONO_CROSS_OPENING = preload("res://Rey Projects/Assets/Music/Chrono Cross Opening.mp3")
 const SUPER_SMASH_BROS_4_MAIN_THEME = preload("res://Rey Projects/Assets/Music/Super Smash Bros 4 Main Theme.mp3")
 
-func _run():
-	if play_editor_intro:
-		for node in get_all_children(get_scene()):
-			if node is AudioStreamPlayer && node.name == "Editor Intro Theme":
-				# Don't operate on instanced subscene children, as changes are lost
-				# when reloading the scene.
-				# See the "Instancing scenes" section below for a description of `owner`.
+func _process(delta):
+	if has_played_intro_music == false:
+		if play_editor_intro_on_launch:
+			if playing == false:
 				var editor_intro_song = random_editor_intro_song()
-				node.stream = editor_intro_song
-				node.volume_db = set_volume_db_from_song(editor_intro_song)
-				node.playing = true
+				stream = editor_intro_song
+				volume_db = set_volume_db_from_song(editor_intro_song)
+				playing = true
+		has_played_intro_music = true
 
 func get_all_children(in_node, children_acc = []):
 	children_acc.push_back(in_node)

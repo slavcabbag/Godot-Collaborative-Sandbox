@@ -132,7 +132,7 @@ grow_amount = 0.325
 albedo_color = Color(0, 0, 0, 0.486275)
 emission_enabled = true
 emission = Color(0, 0.920529, 0.202017, 1)
-emission_energy_multiplier = 1.97
+emission_energy_multiplier = 6.71
 
 [sub_resource type="Animation" id="Animation_biva4"]
 resource_name = "close"

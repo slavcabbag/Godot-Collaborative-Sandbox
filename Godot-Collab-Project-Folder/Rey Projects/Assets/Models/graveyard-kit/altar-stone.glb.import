@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbqaftu05xfhw"
-path="res://.godot/imported/bench-damaged.glb-32025e8a1dfefc2a798bccaed7fb61c5.scn"
+uid="uid://dijs81e7ag5q0"
+path="res://.godot/imported/altar-stone.glb-b62fc73181f4cb3ba1fb47ed70726819.scn"
 
 [deps]
 
-source_file="res://Rey Projects/Assets/Models/graveyard-kit/bench-damaged.glb"
-dest_files=["res://.godot/imported/bench-damaged.glb-32025e8a1dfefc2a798bccaed7fb61c5.scn"]
+source_file="res://Rey Projects/Assets/Models/graveyard-kit/altar-stone.glb"
+dest_files=["res://.godot/imported/altar-stone.glb-b62fc73181f4cb3ba1fb47ed70726819.scn"]
 
 [params]
 

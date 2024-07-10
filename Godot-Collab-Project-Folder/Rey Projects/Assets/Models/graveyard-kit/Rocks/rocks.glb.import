@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3qd0nujjj33p"
-path="res://.godot/imported/bench.glb-a189fc64c9213dfd195c822af6007b89.scn"
+uid="uid://xpji486crqqm"
+path="res://.godot/imported/rocks.glb-15cab052540b6411f6c4dfed10d5d367.scn"
 
 [deps]
 
-source_file="res://Rey Projects/Assets/Models/graveyard-kit/bench.glb"
-dest_files=["res://.godot/imported/bench.glb-a189fc64c9213dfd195c822af6007b89.scn"]
+source_file="res://Rey Projects/Assets/Models/graveyard-kit/Rocks/rocks.glb"
+dest_files=["res://.godot/imported/rocks.glb-15cab052540b6411f6c4dfed10d5d367.scn"]
 
 [params]
 

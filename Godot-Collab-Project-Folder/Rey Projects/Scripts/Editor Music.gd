@@ -9,14 +9,15 @@ const CHRONO_CROSS_OPENING = preload("res://Rey Projects/Assets/Music/Chrono Cro
 const SUPER_SMASH_BROS_4_MAIN_THEME = preload("res://Rey Projects/Assets/Music/Super Smash Bros 4 Main Theme.mp3")
 
 func _process(delta):
-	if has_played_intro_music == false:
-		if play_editor_intro_on_launch:
-			if playing == false:
-				var editor_intro_song = random_editor_intro_song()
-				stream = editor_intro_song
-				volume_db = set_volume_db_from_song(editor_intro_song)
-				playing = true
-		has_played_intro_music = true
+	if Engine.is_editor_hint():
+		if has_played_intro_music == false:
+			if play_editor_intro_on_launch:
+				if playing == false:
+					var editor_intro_song = random_editor_intro_song()
+					stream = editor_intro_song
+					volume_db = set_volume_db_from_song(editor_intro_song)
+					playing = true
+			has_played_intro_music = true
 
 func get_all_children(in_node, children_acc = []):
 	children_acc.push_back(in_node)

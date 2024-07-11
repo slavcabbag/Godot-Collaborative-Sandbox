@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cifmpxjxypxcp"]
+
+[ext_resource type="PackedScene" uid="uid://d0wgmiyjugmn8" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/pine-fall.glb" id="1_s5w5b"]
+[ext_resource type="Texture2D" uid="uid://duc4rjxuwlasw" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/Tree Specific colormap.png" id="2_0ero2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogqbk"]
+albedo_texture = ExtResource("2_0ero2")
+
+[node name="pine-fall2" instance=ExtResource("1_s5w5b")]
+
+[node name="pine-fall" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ogqbk")

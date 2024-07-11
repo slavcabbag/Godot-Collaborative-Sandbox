@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://twwff51wpa1i"]
+
+[ext_resource type="PackedScene" uid="uid://cp8m2pcado6kl" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/pine-fall-crooked.glb" id="1_hk6fd"]
+[ext_resource type="Texture2D" uid="uid://duc4rjxuwlasw" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/Tree Specific colormap.png" id="2_jvigl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogqbk"]
+albedo_texture = ExtResource("2_jvigl")
+
+[node name="pine-fall-crooked2" instance=ExtResource("1_hk6fd")]
+
+[node name="pine-fall-crooked" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ogqbk")

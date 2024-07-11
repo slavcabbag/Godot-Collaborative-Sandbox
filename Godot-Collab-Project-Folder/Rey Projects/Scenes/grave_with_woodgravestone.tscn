@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://juj7vqk436a6"]
 
 [ext_resource type="PackedScene" uid="uid://b8jeh0lrpv3ff" path="res://Rey Projects/Scenes/grave.tscn" id="2_5m5d5"]
-[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="3_ay0be"]
+[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="2_nnytv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oncpo"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("3_ay0be")
+albedo_texture = ExtResource("2_nnytv")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_r35vx"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=3 uid="uid://ejcbvus06vie"]
 
-[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="1_f1pq7"]
+[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="1_qt4sd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ic73l"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("1_f1pq7")
+albedo_texture = ExtResource("1_qt4sd")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sbqux"]
@@ -46,7 +46,7 @@ albedo_color = Color(0.233459, 0.253389, 0.348152, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwb5s"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("1_f1pq7")
+albedo_texture = ExtResource("1_qt4sd")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_40w0t"]
@@ -87,7 +87,7 @@ albedo_color = Color(0.134271, 0.134846, 0.187078, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijb2d"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("1_f1pq7")
+albedo_texture = ExtResource("1_qt4sd")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kd5y7"]

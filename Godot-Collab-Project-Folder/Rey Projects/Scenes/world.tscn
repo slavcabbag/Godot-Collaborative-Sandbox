@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://ded8uhp38bur3"]
+[gd_scene load_steps=40 format=3 uid="uid://ded8uhp38bur3"]
 
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Player.gd" id="1_iud40"]
+[ext_resource type="Script" path="res://Rey Projects/Scripts/Editor Fog Manager.gd" id="2_5rf8n"]
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Game Manager.gd" id="2_figup"]
-[ext_resource type="AudioStream" uid="uid://2syp4xyu2l6y" path="res://Rey Projects/Assets/Music/Super Smash Bros 4 Main Theme.mp3" id="2_ftv5s"]
 [ext_resource type="Script" path="res://Rey Projects/Scripts/Editor Music.gd" id="2_l6c1c"]
+[ext_resource type="AudioStream" uid="uid://xqqunjovym74" path="res://Rey Projects/Assets/Music/Elden Ring Title Screen Theme.mp3" id="3_6eqek"]
 [ext_resource type="PackedScene" uid="uid://cel84av1gvwqx" path="res://Rey Projects/Scenes/road.tscn" id="4_d7hrc"]
 [ext_resource type="PackedScene" uid="uid://ejcbvus06vie" path="res://Rey Projects/Scenes/crypt.tscn" id="4_sacq6"]
 [ext_resource type="PackedScene" uid="uid://dr12j14sgno3i" path="res://Rey Projects/Scenes/brick_wall_end_2.tscn" id="6_fhtwt"]
@@ -18,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://juj7vqk436a6" path="res://Rey Projects/Scenes/grave_with_woodgravestone.tscn" id="12_mxfjk"]
 [ext_resource type="PackedScene" uid="uid://cj3b71r8gr76c" path="res://Rey Projects/Scenes/lightpost_single_2.tscn" id="14_7hc6w"]
 [ext_resource type="PackedScene" uid="uid://cx6viujwevsod" path="res://Rey Projects/Scenes/brick_bench.tscn" id="14_hqq87"]
+[ext_resource type="PackedScene" uid="uid://bh4563xk04xuc" path="res://Rey Projects/Scenes/pine_2.tscn" id="19_lh15b"]
+[ext_resource type="PackedScene" uid="uid://cojfo5712od5t" path="res://Rey Projects/Scenes/pine_crooked_2.tscn" id="20_pg5ja"]
+[ext_resource type="PackedScene" uid="uid://cifmpxjxypxcp" path="res://Rey Projects/Scenes/pine_fall_2.tscn" id="21_5lxew"]
+[ext_resource type="PackedScene" uid="uid://twwff51wpa1i" path="res://Rey Projects/Scenes/pine_fall_crooked_2.tscn" id="22_54kxu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ugxr6"]
 sky_top_color = Color(0.488768, 0.623396, 0.802393, 1)
@@ -36,8 +41,7 @@ glow_enabled = true
 fog_light_color = Color(0.898039, 0.364706, 0.270588, 1)
 fog_light_energy = 1.47
 fog_density = 0.03
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.04
+volumetric_fog_density = 0.03
 volumetric_fog_albedo = Color(0.603207, 0.341177, 0.294142, 1)
 volumetric_fog_emission = Color(0.57598, 0.34607, 0.298118, 1)
 volumetric_fog_detail_spread = 4.09812
@@ -113,11 +117,14 @@ shadow_blur = 1.978
 [node name="Game Manager" type="Node" parent="."]
 script = ExtResource("2_figup")
 
+[node name="Editor Fog Manager" type="Node3D" parent="Game Manager"]
+script = ExtResource("2_5rf8n")
+
 [node name="Editor Music" type="Node" parent="Game Manager"]
 
 [node name="Editor Intro Theme" type="AudioStreamPlayer" parent="Game Manager/Editor Music"]
-stream = ExtResource("2_ftv5s")
-volume_db = -15.5
+stream = ExtResource("3_6eqek")
+volume_db = -3.5
 mix_target = 2
 script = ExtResource("2_l6c1c")
 
@@ -2056,3 +2063,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67337, 0, 4.76837e-07)
 [node name="Ground Colored" type="CSGBox3D" parent="Map"]
 size = Vector3(100, 0.001, 100)
 material = SubResource("StandardMaterial3D_ddnpf")
+
+[node name="pine2" parent="." instance=ExtResource("19_lh15b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14013, -0.108582, -6.28454)
+
+[node name="pine-crooked2" parent="." instance=ExtResource("20_pg5ja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315131, -0.108582, -6.44208)
+
+[node name="pine-fall2" parent="." instance=ExtResource("21_5lxew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1458, -0.108582, -7.27638)
+
+[node name="pine-fall-crooked2" parent="." instance=ExtResource("22_54kxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36817, -0.108581, -7.39477)

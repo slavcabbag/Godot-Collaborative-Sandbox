@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wd262n2f10dp"
-path="res://.godot/imported/pumpkin-tall-carved.glb-f113fabfbc3bc7b85d2ba162f4c285ba.scn"
+uid="uid://bfoef63vbegks"
+path="res://.godot/imported/pumpkin-carved.glb-7e37a1cb3715ac32daf25d370498df4f.scn"
 
 [deps]
 
-source_file="res://Rey Projects/Assets/Models/graveyard-kit/pumpkin-tall-carved.glb"
-dest_files=["res://.godot/imported/pumpkin-tall-carved.glb-f113fabfbc3bc7b85d2ba162f4c285ba.scn"]
+source_file="res://Rey Projects/Assets/Models/graveyard-kit/Plants/pumpkin-carved.glb"
+dest_files=["res://.godot/imported/pumpkin-carved.glb-7e37a1cb3715ac32daf25d370498df4f.scn"]
 
 [params]
 

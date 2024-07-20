@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://juj7vqk436a6"]
 
-[ext_resource type="PackedScene" uid="uid://b8jeh0lrpv3ff" path="res://Rey Projects/Scenes/grave.tscn" id="2_5m5d5"]
-[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Textures/colormap.png" id="2_nnytv"]
+[ext_resource type="PackedScene" uid="uid://b8jeh0lrpv3ff" path="res://Rey Projects/Scenes/Crypty  stuff/grave.tscn" id="2_5m5d5"]
+[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/colormap.png" id="2_nnytv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oncpo"]
 resource_name = "colormap"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cojfo5712od5t"]
+[gd_scene load_steps=8 format=3 uid="uid://cojfo5712od5t"]
 
 [ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/colormap.png" id="1_cdpwq"]
 [ext_resource type="Script" path="res://Rey Projects/Scripts/tree_customization.gd" id="1_qcwfm"]
@@ -45,9 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_66uwd")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogqbk"]
 albedo_texture = ExtResource("2_rhc5m")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_6k2cg"]
-
-[node name="pine-crooked2" type="StaticBody3D"]
+[node name="pine-crooked2" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_qcwfm")
 
@@ -55,7 +53,3 @@ script = ExtResource("1_qcwfm")
 mesh = SubResource("ArrayMesh_6f8v3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ogqbk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99817, 0)
-shape = SubResource("CylinderShape3D_6k2cg")

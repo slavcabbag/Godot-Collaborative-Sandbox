@@ -11,7 +11,7 @@ var ramp_up = 0 #funny
 func _process(delta):
 	if Engine.is_editor_hint():
 		pass
-	if Engine.is_editor_hint():
+	if !Engine.is_editor_hint():
 		
 		if key_released('ctrl') && Input.is_key_pressed(KEY_PERIOD):
 			if randi_range(1,3) == 1:

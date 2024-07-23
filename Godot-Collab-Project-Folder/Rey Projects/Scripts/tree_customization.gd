@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D
+extends Node3D
 var ctrl_held_last_frame = false
 var comma_held_last_frame = false
 var period_held_last_frame = false
@@ -37,7 +37,7 @@ func _process(delta):
 		if key_released('ctrl') && slash_held_last_frame || key_released('slash') && ctrl_held_last_frame:
 			#reset
 			
-			if get_parent().name == 'Trees':
+			if get_parent().name == 'Behind Wall Trees':
 				rotation = Vector3(0,-89.1,0)
 				if name.begins_with('pine-fall'):
 					scale = Vector3(2,2,2)

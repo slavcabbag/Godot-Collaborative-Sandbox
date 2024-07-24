@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dupntivj1dfkv"]
 
-[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/colormap.png" id="1_it6ed"]
+[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Misc/Textures/colormap.png" id="1_it6ed"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltfim"]
 resource_name = "colormap"

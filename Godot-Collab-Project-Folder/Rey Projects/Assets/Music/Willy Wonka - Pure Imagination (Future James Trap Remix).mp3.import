@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjmjep104lo2q"
+path="res://.godot/imported/Willy Wonka - Pure Imagination (Future James Trap Remix).mp3-7f7a1b175cef80d03fd4a35440f5d264.mp3str"
+
+[deps]
+
+source_file="res://Rey Projects/Assets/Music/Willy Wonka - Pure Imagination (Future James Trap Remix).mp3"
+dest_files=["res://.godot/imported/Willy Wonka - Pure Imagination (Future James Trap Remix).mp3-7f7a1b175cef80d03fd4a35440f5d264.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

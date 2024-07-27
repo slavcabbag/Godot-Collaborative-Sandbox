@@ -1,7 +1,5 @@
 extends Node3D
 
-@onready var gravestone_roof_2 = $"gravestone-roof2"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Get_Graves()

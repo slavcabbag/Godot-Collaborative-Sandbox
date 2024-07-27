@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://3abhhtys0su5"]
 
 [ext_resource type="PackedScene" uid="uid://wd262n2f10dp" path="res://Rey Projects/Assets/Models/graveyard-kit/Plants/pumpkin-tall-carved.glb" id="1_ljmw4"]
-[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Misc/Textures/colormap.png" id="2_h0yuw"]
+[ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/colormap.png" id="2_h0yuw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kde4"]
 albedo_color = Color(0.764706, 0.690196, 0.0980392, 1)

@@ -17,7 +17,7 @@ const ELDEN_RING_TITLE_SCREEN_THEME = preload("res://Rey Projects/Assets/Music/E
 const CHRONO_CROSS_OPENING = preload("res://Rey Projects/Assets/Music/Chrono Cross Opening.mp3")
 const SUPER_SMASH_BROS_4_MAIN_THEME = preload("res://Rey Projects/Assets/Music/Super Smash Bros 4 Main Theme.mp3")
 const WILLY_WONKA_PURE_IMAGINATION = preload("res://Rey Projects/Assets/Music/Willy Wonka - Pure Imagination (Future James Trap Remix).mp3")
-
+const PAPER_IDOL_JAMES_BOND = preload("res://Rey Projects/Assets/Music/Paper Idol – James Bond.mp3")
 
 
 func _process(delta):
@@ -73,18 +73,20 @@ func random_editor_intro_song(song_type):
 	if song_type == 'short':
 		songs = [ELDEN_RING_TITLE_SCREEN_THEME, CHRONO_CROSS_OPENING, SUPER_SMASH_BROS_4_MAIN_THEME]
 	elif song_type == 'long':
-		songs = [WILLY_WONKA_PURE_IMAGINATION]
+		songs = [WILLY_WONKA_PURE_IMAGINATION, PAPER_IDOL_JAMES_BOND]
 	var chosen_song = songs.pick_random()
 	return chosen_song
 func set_volume_db_from_song(song):
 	if song == ELDEN_RING_TITLE_SCREEN_THEME:
-		return -3.5
+		return 5.0
 	elif song == CHRONO_CROSS_OPENING:
-		return -12.5
+		return -6.0
 	elif song == SUPER_SMASH_BROS_4_MAIN_THEME:
-		return -15.5
+		return -12.5
 	elif song == WILLY_WONKA_PURE_IMAGINATION:
-		return -3.2
+		return -2.2
+	elif song == PAPER_IDOL_JAMES_BOND:
+		return -3.0
 func random_select_music():
 	print(song_type)
 	var editor_intro_song = random_editor_intro_song(song_type)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq0wj0fm3ir7h"]
+
+[ext_resource type="Script" path="res://Rey Projects/Scripts/One-Use/Customization of Objects/Label3DColor.gd" id="1_3lule"]
+
+[node name="FuzzyText" type="Label3D"]
+transform = Transform3D(-1.264, 0, 0, 0, 1, -8.8297e-08, 0, -8.74228e-08, -1.01, -1.96653, 1.49274, -6.92228)
+alpha_cut = 1
+modulate = Color(1, 0.1, 0.1, 0.1)
+text = "YOU! WHAT HAVE YOU DONE"
+script = ExtResource("1_3lule")

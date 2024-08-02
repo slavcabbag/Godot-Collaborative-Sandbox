@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bskrijnub4cfn"]
+
+[ext_resource type="Script" path="res://Rey Projects/Scripts/One-Use/Customization of Objects/Bounce Parent Obj Up&Down.gd" id="1_j33av"]
+
+[node name="Bounce Up&Down" type="Node3D"]
+script = ExtResource("1_j33av")

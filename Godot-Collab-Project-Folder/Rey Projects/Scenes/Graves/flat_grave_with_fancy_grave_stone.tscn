@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dlpqx6bxl04m0"]
 
-[ext_resource type="Script" path="res://Rey Projects/Scripts/Customization of Objects/grave_with_grave_stone.gd" id="1_xa6ty"]
+[ext_resource type="Script" path="res://Rey Projects/Scripts/One-Use/Customization of Objects/grave_with_grave_stone.gd" id="1_xa6ty"]
 [ext_resource type="PackedScene" uid="uid://bgdccxsc5u60t" path="res://Rey Projects/Scenes/Graves/gravestone_flat_2.tscn" id="2_rvsmj"]
 [ext_resource type="PackedScene" uid="uid://dc57u2llal3wu" path="res://Rey Projects/Scenes/Grave_stones/Normal/gravestone_cross_large.tscn" id="3_65lec"]
 [ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/colormap.png" id="4_3svni"]

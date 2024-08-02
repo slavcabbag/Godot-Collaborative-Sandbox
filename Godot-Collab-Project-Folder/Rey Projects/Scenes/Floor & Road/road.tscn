@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cel84av1gvwqx"]
 
-[ext_resource type="Script" path="res://Rey Projects/Scripts/Customization of Objects/road.gd" id="1_2w3g3"]
+[ext_resource type="Script" path="res://Rey Projects/Scripts/One-Use/Customization of Objects/road.gd" id="1_2w3g3"]
 [ext_resource type="Material" uid="uid://bd5adpkxu44hp" path="res://Rey Projects/Scenes/Floor & Road/road.tres" id="2_lbe2m"]
 [ext_resource type="Texture2D" uid="uid://bhi8twlrjqj45" path="res://Rey Projects/Assets/Models/graveyard-kit/Trees/Textures/colormap.png" id="2_t0rw3"]
 

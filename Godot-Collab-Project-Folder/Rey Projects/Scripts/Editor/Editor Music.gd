@@ -18,10 +18,28 @@ const CHRONO_CROSS_OPENING = preload("res://Rey Projects/Assets/Music/Chrono Cro
 const SUPER_SMASH_BROS_4_MAIN_THEME = preload("res://Rey Projects/Assets/Music/Super Smash Bros 4 Main Theme.mp3")
 const WILLY_WONKA_PURE_IMAGINATION = preload("res://Rey Projects/Assets/Music/Willy Wonka - Pure Imagination (Future James Trap Remix).mp3")
 const PAPER_IDOL_JAMES_BOND = preload("res://Rey Projects/Assets/Music/Paper Idol – James Bond.mp3")
-
-
+const SPOOKY_SCARY_SKELETONS = preload("res://Rey Projects/Assets/Music/Spooky, Scary Skeletons - Undead Tombstone.mp3")
 func _process(delta):
-	# if is in editor 
+	if !Engine.is_editor_hint():
+		if play_editor_intro_on_launch:
+			random_select_music()
+			play_editor_intro_on_launch = false
+			
+			playing = true
+			autoplay = true
+		print(playing)
+
+		#turn off song and autoplay
+		if Input.is_key_pressed(KEY_CTRL) && Input.is_key_pressed(KEY_1):
+			autoplay = false
+			playing = false
+		monitor_held_last_frame_variables()
+
+
+	if !Engine.is_editor_hint():
+		#autoplay = false
+		#playing = false
+		pass
 	if Engine.is_editor_hint():
 		
 		if has_played_intro_music == false:
@@ -55,9 +73,6 @@ func _process(delta):
 			playing = false
 		monitor_held_last_frame_variables()
 	
-	if !Engine.is_editor_hint():
-		autoplay = false
-		playing = false
 	
 
 
@@ -92,6 +107,9 @@ func random_select_music():
 	var editor_intro_song = random_editor_intro_song(song_type)
 	stream = editor_intro_song
 	volume_db = set_volume_db_from_song(editor_intro_song)
+	if !Engine.is_editor_hint():
+		stream = SPOOKY_SCARY_SKELETONS
+		volume_db = -13
 
 func monitor_held_last_frame_variables():
 	ctrl_held_last_frame = Input.is_key_pressed(KEY_CTRL)

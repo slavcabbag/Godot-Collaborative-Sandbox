@@ -4,3 +4,7 @@
 
 [node name="Bounce Up&Down" type="Node3D"]
 script = ExtResource("1_j33av")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

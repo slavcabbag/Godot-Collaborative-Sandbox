@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 
 @onready var timer = $"../Timer"
 
-var spooky_enabled = false
+var spooky_enabled = true
 
 var play_editor_intro_on_launch = true
 var has_played_intro_music = false

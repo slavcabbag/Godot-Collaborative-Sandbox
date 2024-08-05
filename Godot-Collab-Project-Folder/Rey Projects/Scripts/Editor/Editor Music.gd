@@ -3,8 +3,11 @@ extends AudioStreamPlayer
 
 @onready var timer = $"../Timer"
 
+var spooky_enabled = false
+
 var play_editor_intro_on_launch = true
 var has_played_intro_music = false
+
 
 #inputdumb variables to have key released (input.action stuff doesn't work)
 var ctrl_held_last_frame = false
@@ -21,13 +24,13 @@ const PAPER_IDOL_JAMES_BOND = preload("res://Rey Projects/Assets/Music/Paper Ido
 const SPOOKY_SCARY_SKELETONS = preload("res://Rey Projects/Assets/Music/Spooky, Scary Skeletons - Undead Tombstone.mp3")
 func _process(delta):
 	if !Engine.is_editor_hint():
-		if play_editor_intro_on_launch:
-			random_select_music()
-			play_editor_intro_on_launch = false
-			
-			playing = true
-			autoplay = true
-		print(playing)
+		if spooky_enabled:
+			if play_editor_intro_on_launch:
+				random_select_music()
+				play_editor_intro_on_launch = false
+				
+				playing = true
+				autoplay = true
 
 		#turn off song and autoplay
 		if Input.is_key_pressed(KEY_CTRL) && Input.is_key_pressed(KEY_1):
@@ -101,7 +104,7 @@ func set_volume_db_from_song(song):
 	elif song == WILLY_WONKA_PURE_IMAGINATION:
 		return -2.2
 	elif song == PAPER_IDOL_JAMES_BOND:
-		return -3.0
+		return -9.0
 func random_select_music():
 	print(song_type)
 	var editor_intro_song = random_editor_intro_song(song_type)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5tl806jm51ha"
+path="res://.godot/imported/S M U G  - D A N C I N.mp3-5ee54b8282c241f78fa38a11fa735239.mp3str"
+
+[deps]
+
+source_file="res://Rey Projects/Assets/Music/S M U G  - D A N C I N.mp3"
+dest_files=["res://.godot/imported/S M U G  - D A N C I N.mp3-5ee54b8282c241f78fa38a11fa735239.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

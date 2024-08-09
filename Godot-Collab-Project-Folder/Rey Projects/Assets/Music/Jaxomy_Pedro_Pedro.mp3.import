@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://de3d4kyt710c1"
+path="res://.godot/imported/Jaxomy_Pedro_Pedro.mp3-2399291548916b54ff48b96716410d91.mp3str"
+
+[deps]
+
+source_file="res://Rey Projects/Assets/Music/Jaxomy_Pedro_Pedro.mp3"
+dest_files=["res://.godot/imported/Jaxomy_Pedro_Pedro.mp3-2399291548916b54ff48b96716410d91.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

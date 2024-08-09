@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 
 @onready var timer = $"../Timer"
 
-var spooky_enabled = true
+var spooky_enabled = false
 
 var play_editor_intro_on_launch = true
 var has_played_intro_music = false
@@ -22,6 +22,10 @@ const SUPER_SMASH_BROS_4_MAIN_THEME = preload("res://Rey Projects/Assets/Music/S
 const WILLY_WONKA_PURE_IMAGINATION = preload("res://Rey Projects/Assets/Music/Willy Wonka - Pure Imagination (Future James Trap Remix).mp3")
 const PAPER_IDOL_JAMES_BOND = preload("res://Rey Projects/Assets/Music/Paper Idol – James Bond.mp3")
 const SPOOKY_SCARY_SKELETONS = preload("res://Rey Projects/Assets/Music/Spooky, Scary Skeletons - Undead Tombstone.mp3")
+const S_M_U_G__D_A_N_C_I_N = preload("res://Rey Projects/Assets/Music/S M U G  - D A N C I N.mp3")
+const UGOVHB_WTF_2 = preload("res://Rey Projects/Assets/Music/UGOVHB - WTF 2.mp3")
+const JAXOMY_PEDRO_PEDRO = preload("res://Rey Projects/Assets/Music/Jaxomy_Pedro_Pedro.mp3")
+
 func _process(delta):
 	if !Engine.is_editor_hint():
 		if spooky_enabled:
@@ -40,9 +44,10 @@ func _process(delta):
 
 
 	if !Engine.is_editor_hint():
-		#autoplay = false
-		#playing = false
-		pass
+		if !spooky_enabled:
+			autoplay = false
+			playing = false
+		pass	 
 	if Engine.is_editor_hint():
 		
 		if has_played_intro_music == false:
@@ -89,9 +94,9 @@ func get_all_children(in_node, children_acc = []):
 func random_editor_intro_song(song_type):
 	var songs
 	if song_type == 'short':
-		songs = [ELDEN_RING_TITLE_SCREEN_THEME, CHRONO_CROSS_OPENING, SUPER_SMASH_BROS_4_MAIN_THEME]
+		songs = [JAXOMY_PEDRO_PEDRO, ELDEN_RING_TITLE_SCREEN_THEME, CHRONO_CROSS_OPENING, SUPER_SMASH_BROS_4_MAIN_THEME, UGOVHB_WTF_2]
 	elif song_type == 'long':
-		songs = [WILLY_WONKA_PURE_IMAGINATION, PAPER_IDOL_JAMES_BOND]
+		songs = [JAXOMY_PEDRO_PEDRO, WILLY_WONKA_PURE_IMAGINATION, PAPER_IDOL_JAMES_BOND, S_M_U_G__D_A_N_C_I_N]
 	var chosen_song = songs.pick_random()
 	return chosen_song
 func set_volume_db_from_song(song):
@@ -100,11 +105,17 @@ func set_volume_db_from_song(song):
 	elif song == CHRONO_CROSS_OPENING:
 		return -6.0
 	elif song == SUPER_SMASH_BROS_4_MAIN_THEME:
-		return -12.5
+		return -5
 	elif song == WILLY_WONKA_PURE_IMAGINATION:
 		return -2.2
 	elif song == PAPER_IDOL_JAMES_BOND:
 		return -9.0
+	elif song == S_M_U_G__D_A_N_C_I_N:
+		return -4
+	elif song == UGOVHB_WTF_2: #saw in an edit, supa high energi. #prob dirty lyrics, but I don't speak that language hahaha
+		return -11
+	elif song == JAXOMY_PEDRO_PEDRO:
+		return -5
 func random_select_music():
 	print(song_type)
 	var editor_intro_song = random_editor_intro_song(song_type)

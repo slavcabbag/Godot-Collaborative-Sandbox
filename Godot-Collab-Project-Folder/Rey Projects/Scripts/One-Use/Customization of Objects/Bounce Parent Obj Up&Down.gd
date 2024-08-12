@@ -1,6 +1,6 @@
 extends Node3D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-var enabled = false
+var enabled = true
 var randnum = 0
 var up_ = true
 var scale__h

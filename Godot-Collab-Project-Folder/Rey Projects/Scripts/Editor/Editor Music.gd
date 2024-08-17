@@ -25,6 +25,7 @@ const SPOOKY_SCARY_SKELETONS = preload("res://Rey Projects/Assets/Music/Spooky, 
 const S_M_U_G__D_A_N_C_I_N = preload("res://Rey Projects/Assets/Music/S M U G  - D A N C I N.mp3")
 const UGOVHB_WTF_2 = preload("res://Rey Projects/Assets/Music/UGOVHB - WTF 2.mp3")
 const JAXOMY_PEDRO_PEDRO = preload("res://Rey Projects/Assets/Music/Jaxomy_Pedro_Pedro.mp3")
+const AOT_THE_RUMBLING = preload("res://Rey Projects/Assets/Music/AOT – The Rumbling.mp3")
 
 func _process(delta):
 	if !Engine.is_editor_hint():
@@ -94,9 +95,9 @@ func get_all_children(in_node, children_acc = []):
 func random_editor_intro_song(song_type):
 	var songs
 	if song_type == 'short':
-		songs = [JAXOMY_PEDRO_PEDRO, ELDEN_RING_TITLE_SCREEN_THEME, CHRONO_CROSS_OPENING, SUPER_SMASH_BROS_4_MAIN_THEME, UGOVHB_WTF_2]
+		songs = [AOT_THE_RUMBLING, JAXOMY_PEDRO_PEDRO, ELDEN_RING_TITLE_SCREEN_THEME, CHRONO_CROSS_OPENING, SUPER_SMASH_BROS_4_MAIN_THEME, UGOVHB_WTF_2]
 	elif song_type == 'long':
-		songs = [JAXOMY_PEDRO_PEDRO, WILLY_WONKA_PURE_IMAGINATION, PAPER_IDOL_JAMES_BOND, S_M_U_G__D_A_N_C_I_N]
+		songs = [AOT_THE_RUMBLING, JAXOMY_PEDRO_PEDRO, WILLY_WONKA_PURE_IMAGINATION, PAPER_IDOL_JAMES_BOND, S_M_U_G__D_A_N_C_I_N]
 	var chosen_song = songs.pick_random()
 	return chosen_song
 func set_volume_db_from_song(song):
@@ -116,6 +117,8 @@ func set_volume_db_from_song(song):
 		return -11
 	elif song == JAXOMY_PEDRO_PEDRO:
 		return -5
+	elif song == AOT_THE_RUMBLING:
+		return -11
 func random_select_music():
 	print(song_type)
 	var editor_intro_song = random_editor_intro_song(song_type)

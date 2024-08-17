@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byyri0j1ribdy"
+path="res://.godot/imported/AOT – The Rumbling.mp3-27580e161f82a9d09813167c7ef677b1.mp3str"
+
+[deps]
+
+source_file="res://Rey Projects/Assets/Music/AOT – The Rumbling.mp3"
+dest_files=["res://.godot/imported/AOT – The Rumbling.mp3-27580e161f82a9d09813167c7ef677b1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

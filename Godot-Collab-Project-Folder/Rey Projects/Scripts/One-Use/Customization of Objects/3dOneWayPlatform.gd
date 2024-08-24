@@ -11,7 +11,6 @@ func _ready():
 	get_node("./CollisionShape3D/MeshInstance3D").get_mesh().set_bottom_radius(size_radius*1.3)
 	get_node("./CollisionShape3D/MeshInstance3D").get_mesh().set_top_radius(size_radius)
 	get_node("./Area3D/CollisionShape3D").get_shape().set_radius(size_radius+size_radius*0.2)
-	print(get_node("./CollisionShape3D").get_shape().get_radius())
 	#player = get_node(player_path)
 	player = get_node("/root/World/Player")
 	templabel = player.get_node("./Head/Camera3D/TempLabel")

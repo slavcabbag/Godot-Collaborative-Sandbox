@@ -78,6 +78,10 @@ var t_bob = 0.0 # determine how far along the sine wave we are
 # FOV Variables
 const BASE_FOV = 75.0
 
+#signal
+signal player_hit
+
+const HIT_STAGGER = 8.0
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -267,3 +271,7 @@ func _headbob(delta, time) -> Vector3:
 		pos.x = lerp(pos.x, 0.0, delta * 3.0)
 		ramp_up_on_move = 0.01
 	return pos
+
+func hit(dir):
+	emit_signal("player_hit")
+	velocity += dir * HIT_STAGGER

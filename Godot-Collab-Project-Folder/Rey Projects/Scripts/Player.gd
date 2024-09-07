@@ -8,7 +8,9 @@ var bug1 = false #ACTIVATE: just keep running around for a bit until you go BRRR
 	# amount I can affect the direction, thus I can control if the headbob
 	# offset reset goes from the bottom of the map or
 	# from the top, adding a cool effect
+var bug2 = false #ACTIVATE: Jump, you will float idk
 
+var jetpack_enabled = true #Makes you fly like a jetpack is on your back
 # Custom speeds
 # (VELOCITY): affects when not moving at all and in air
 # (SPEED COUNTER): affects only when moving, speed_counter gradually increases as you move
@@ -102,8 +104,38 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	
+	#increases gravity when falling, decreases amount when holding jump
+	if bug2 == true:
+		if not is_on_floor():
+			if velocity.y >= 0:
+				velocity.y -= gravity * delta
+			if Input.is_action_just_pressed("Jump"):
+				if velocity.y >= 0:
+					velocity.y -= lerpf(1,1.6,1-clamp(velocity.y*0.2,0,1)) * gravity * delta	
+				elif velocity.y < 0:
+					velocity.y -= lerpf(1,2,1-clamp(velocity.y*0.2,0,1)) * gravity * delta
+	else:
+		if jetpack_enabled == true:
+			if not is_on_floor():
+				if Input.is_action_pressed("Jump"):
+					velocity.y += 0.8 * gravity * delta
+				elif !Input.is_action_pressed("Jump"):
+					velocity.y -= 2 * gravity * delta
+		else:
+			if not is_on_floor():
+				var turning_point = -0.5
+				if Input.is_action_pressed("Jump"):
+					if velocity.y > turning_point:
+						velocity.y -= 1.2 * gravity * delta
+					elif velocity.y <= turning_point:
+						velocity.y -= 1.8 * gravity * delta
+				elif !Input.is_action_pressed("Jump"):
+					if velocity.y > turning_point:
+						velocity.y -= 1.6 * gravity * delta
+					elif velocity.y <= turning_point:
+						velocity.y -= 2 * gravity * delta
+	
 
 	# Handle jump.
 	if Input.is_key_pressed(KEY_Q) and Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -275,3 +307,4 @@ func _headbob(delta, time) -> Vector3:
 func hit(dir):
 	emit_signal("player_hit")
 	velocity += dir * HIT_STAGGER
+	

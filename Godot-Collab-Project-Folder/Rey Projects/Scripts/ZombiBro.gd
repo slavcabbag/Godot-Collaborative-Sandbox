@@ -14,7 +14,7 @@ var frames_till_calc_navigation = 5 #navigation calculates route every blank fra
 const SPEED = 2.0
 const ATTACK_RANGE = 2.5
 
-@export var player_path:= "/root/World/Player"
+@export var player_path:= "/root/World/Player" 
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var anim_tree = $AnimationTree

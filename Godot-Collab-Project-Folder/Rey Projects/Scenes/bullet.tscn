@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://du4ngfhncjlgi"]
+
+[ext_resource type="Script" path="res://Rey Projects/Scripts/bullet.gd" id="1_0droa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rinrn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1c2p"]
+albedo_color = Color(1, 0.865768, 0.187135, 1)
+emission_enabled = true
+emission = Color(0.32036, 1, 0.315128, 1)
+emission_energy_multiplier = 5.0
+
+[node name="Bullet" type="Node3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_0droa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = SubResource("BoxMesh_rinrn")
+surface_material_override/0 = SubResource("StandardMaterial3D_d1c2p")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(0.595, 0, 0, 0, 0.595, 0, 0, 0, 0.595, 0, 0, 0)
+target_position = Vector3(0, 0, -1)

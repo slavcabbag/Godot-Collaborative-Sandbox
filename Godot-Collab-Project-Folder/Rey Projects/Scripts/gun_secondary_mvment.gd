@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var player = $"../../.."
+@onready var player = $"../../../.."
 
-@onready var camera = $".."
+@onready var camera = $"../.."
 var last_camera_position
 
 # Called when the node enters the scene tree for the first time.
@@ -17,5 +17,5 @@ func _physics_process(delta):
 
 func _process(delta):
 	if name == "Gun Attach Point3":
-		global_position = lerp(global_position+ Vector3(0,0.27,0),last_camera_position, delta*15)
+		global_position = lerp(global_position,last_camera_position + Vector3(0,0.7,0), delta*11)
 		last_camera_position = player.global_position;

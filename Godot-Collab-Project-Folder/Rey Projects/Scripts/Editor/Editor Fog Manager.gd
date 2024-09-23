@@ -11,4 +11,3 @@ func _ready():
 
 	if !Engine.is_editor_hint():
 		world_environment.environment.volumetric_fog_enabled = true
-

@@ -331,54 +331,56 @@ _data = {
 "TT_Handgun_Shoot": SubResource("Animation_qvufy")
 }
 
-[node name="TT Handgun" type="Node3D"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+[node name="Node3D" type="Node3D"]
 
-[node name="Cube_006" type="MeshInstance3D" parent="."]
+[node name="TT Handgun" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.158492, 0)
+
+[node name="Cube_006" type="MeshInstance3D" parent="TT Handgun"]
 transform = Transform3D(100, 1.4243e-12, 8.74229e-06, 0, 100, -1.62921e-05, -8.74229e-06, 1.62921e-05, 100, -2.7453e-16, 0, 0)
 mesh = SubResource("ArrayMesh_jmmdv")
 skeleton = NodePath("")
 
-[node name="Cube_018" type="MeshInstance3D" parent="Cube_006"]
+[node name="Cube_018" type="MeshInstance3D" parent="TT Handgun/Cube_006"]
 transform = Transform3D(1, -2.38048e-22, -1.08508e-21, 1.08508e-21, -2.38419e-07, 1, -2.38048e-22, -1, -2.38419e-07, 0, -2.31324e-19, -5.29209e-12)
 mesh = SubResource("ArrayMesh_1jta7")
 skeleton = NodePath("")
 
-[node name="Cube_020" type="MeshInstance3D" parent="Cube_006/Cube_018"]
+[node name="Cube_020" type="MeshInstance3D" parent="TT Handgun/Cube_006/Cube_018"]
 transform = Transform3D(1, 9.61392e-37, 0, -9.61392e-37, 1, 0, 0, 0, 1, 0, 2.26476e-11, -9.56889e-12)
 mesh = SubResource("ArrayMesh_641jh")
 skeleton = NodePath("")
 
-[node name="Cube_019" type="MeshInstance3D" parent="Cube_006"]
+[node name="Cube_019" type="MeshInstance3D" parent="TT Handgun/Cube_006"]
 transform = Transform3D(1, -2.38048e-22, -1.08508e-21, 1.08508e-21, -2.38419e-07, 1, -2.38048e-22, -1, -2.38419e-07, -5.48467e-06, 0.000146521, 0.000438833)
 mesh = SubResource("ArrayMesh_716qs")
 skeleton = NodePath("")
 
-[node name="Cylinder_007" type="MeshInstance3D" parent="Cube_006"]
+[node name="Cylinder_007" type="MeshInstance3D" parent="TT Handgun/Cube_006"]
 transform = Transform3D(1, 2.22046e-16, -9.01223e-22, 2.22046e-16, -1, -3.89414e-07, -9.87692e-22, 3.89414e-07, -1, -6.85723e-07, 0.000556382, 0.00115934)
 mesh = SubResource("ArrayMesh_8pxgq")
 skeleton = NodePath("")
 
-[node name="Cube_023" type="MeshInstance3D" parent="Cube_006"]
+[node name="Cube_023" type="MeshInstance3D" parent="TT Handgun/Cube_006"]
 transform = Transform3D(0.868764, -1.14906e-21, -1.74071e-22, 1.51227e-22, -2.38419e-07, 1, -9.9826e-22, -1, -2.38419e-07, 1.88384e-19, -0.000223161, -2.55854e-06)
 mesh = SubResource("ArrayMesh_wqhpa")
 skeleton = NodePath("")
 
-[node name="Cube_021" type="MeshInstance3D" parent="Cube_006"]
+[node name="Cube_021" type="MeshInstance3D" parent="TT Handgun/Cube_006"]
 transform = Transform3D(1, -7.75825e-16, -2.26099e-15, 5.61098e-16, -0.843254, 0.537515, -2.32361e-15, -0.537515, -0.843254, 8.46696e-05, 0.000369948, -0.000129414)
 mesh = SubResource("ArrayMesh_bwkid")
 skeleton = NodePath("")
 
-[node name="Cube_022" type="MeshInstance3D" parent="Cube_006"]
+[node name="Cube_022" type="MeshInstance3D" parent="TT Handgun/Cube_006"]
 transform = Transform3D(1, -2.38048e-22, -1.08508e-21, 1.08508e-21, -2.38419e-07, 1, -2.38048e-22, -1, -2.38419e-07, -1.23153e-06, 0.000670295, -0.000129652)
 mesh = SubResource("ArrayMesh_dupa6")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TT Handgun"]
 libraries = {
 "": SubResource("AnimationLibrary_qk30e")
 }
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="TT Handgun"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0527787, 0.743)
 target_position = Vector3(0, 0, 1)

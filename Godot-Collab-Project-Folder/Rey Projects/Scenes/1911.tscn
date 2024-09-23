@@ -367,60 +367,62 @@ _data = {
 "RESET": SubResource("Animation_clm05")
 }
 
-[node name="1911" type="Node3D"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+[node name="Node3D" type="Node3D"]
 
-[node name="Lower Frame" type="MeshInstance3D" parent="."]
+[node name="1911" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.405986, 0)
+
+[node name="Lower Frame" type="MeshInstance3D" parent="1911"]
 transform = Transform3D(0.111729, 1.59136e-15, 9.76767e-09, 0, 0.111729, -1.8203e-08, -9.76767e-09, 1.8203e-08, 0.111729, -2.7453e-16, 0, 0)
 mesh = SubResource("ArrayMesh_5ue3d")
 skeleton = NodePath("")
 
-[node name="Slide" type="MeshInstance3D" parent="Lower Frame"]
+[node name="Slide" type="MeshInstance3D" parent="1911/Lower Frame"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 0, -1.06695e-06, -5.22784e-07)
 mesh = SubResource("ArrayMesh_ihoed")
 skeleton = NodePath("")
 
-[node name="Front sight" type="MeshInstance3D" parent="Lower Frame/Slide"]
+[node name="Front sight" type="MeshInstance3D" parent="1911/Lower Frame/Slide"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 0.000355721, -1.85375, 1.36008)
 mesh = SubResource("ArrayMesh_elxx5")
 skeleton = NodePath("")
 
-[node name="Rear Sight" type="MeshInstance3D" parent="Lower Frame/Slide"]
+[node name="Rear Sight" type="MeshInstance3D" parent="1911/Lower Frame/Slide"]
 transform = Transform3D(2.15303, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, -0.00419201, -0.1844, 1.36646)
 mesh = SubResource("ArrayMesh_ehalu")
 skeleton = NodePath("")
 
-[node name="Trigger" type="MeshInstance3D" parent="Lower Frame"]
+[node name="Trigger" type="MeshInstance3D" parent="1911/Lower Frame"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 0, -1.06695e-06, -5.22784e-07)
 mesh = SubResource("ArrayMesh_l262f")
 skeleton = NodePath("")
 
-[node name="Hammer" type="MeshInstance3D" parent="Lower Frame"]
+[node name="Hammer" type="MeshInstance3D" parent="1911/Lower Frame"]
 transform = Transform3D(0.975152, 0.106113, -0.194469, 0.183366, 0.10599, 0.977314, 0.124318, -0.988689, 0.083899, 0.0527203, 1.08465, -0.0593144)
 mesh = SubResource("ArrayMesh_n60y3")
 skeleton = NodePath("")
 
-[node name="Barrel_001" type="MeshInstance3D" parent="Lower Frame"]
+[node name="Barrel_001" type="MeshInstance3D" parent="1911/Lower Frame"]
 transform = Transform3D(1, 2.22045e-16, -2.22045e-16, 2.22045e-16, -1, -3.89414e-07, -2.22045e-16, 3.89414e-07, -1, 2.71066e-16, 1.22077, 1.85229)
 mesh = SubResource("ArrayMesh_y58m0")
 skeleton = NodePath("")
 
-[node name="GribSafty" type="MeshInstance3D" parent="Lower Frame"]
+[node name="GribSafty" type="MeshInstance3D" parent="1911/Lower Frame"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 0, -1.06695e-06, -5.22784e-07)
 mesh = SubResource("ArrayMesh_4ixb3")
 skeleton = NodePath("")
 
-[node name="Mag" type="MeshInstance3D" parent="Lower Frame"]
+[node name="Mag" type="MeshInstance3D" parent="1911/Lower Frame"]
 transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -1.19209e-07, 2.95416e-09, 0.49028, 0.247889)
 visible = false
 mesh = SubResource("ArrayMesh_240i0")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="1911"]
 libraries = {
 "": SubResource("AnimationLibrary_bap51")
 }
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0172081, 0.136588, 0.74344)
+[node name="RayCast3D" type="RayCast3D" parent="1911"]
+transform = Transform3D(-1, -1.12938e-21, -8.74228e-08, 1.26194e-21, 1, -1.89478e-14, 8.74228e-08, -1.89478e-14, -1, -1.06366e-09, 0.133651, 0.730833)
 target_position = Vector3(0, 0, 1)

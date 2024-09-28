@@ -34,6 +34,10 @@ func _process(delta):
 				topgun.look_at(Vector3(global_position.x,global_position.y,global_position.z))
 				topgun.rotation = Vector3(topgun.rotation.x,topgun.rotation.y,topgun.rotation.z-3.14)
 	if !Engine.is_editor_hint():
+		for gun in guns:
+			if gun != top_1911 || top_tt_handgun:
+				gun.look_at(Vector3(global_position.x,global_position.y,global_position.z))
+				gun.rotation = Vector3(gun.rotation.x-3.14,gun.rotation.y,gun.rotation.z-3.14)
 		for topgun in topguns:
 				topgun.look_at(Vector3(global_position.x,global_position.y,global_position.z))
 				topgun.rotation = Vector3(topgun.rotation.x,topgun.rotation.y,topgun.rotation.z-3.14)

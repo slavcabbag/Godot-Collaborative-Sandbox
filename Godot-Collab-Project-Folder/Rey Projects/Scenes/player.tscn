@@ -54,17 +54,17 @@ offset_bottom = 1076.0
 text = "FPS"
 
 [node name="GunManager" type="Node3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22, 0)
 script = ExtResource("2_f8w1p")
 
 [node name="Gun Attach Point" type="Node3D" parent="Head/Camera3D/GunManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22, 0)
 script = ExtResource("2_f42n4")
 
 [node name="1911" parent="Head/Camera3D/GunManager/Gun Attach Point" instance=ExtResource("2_e3hbq")]
-transform = Transform3D(-0.995275, 0.00536885, -0.0969482, 0.00159157, 0.999238, 0.0389972, 0.0970837, 0.0386586, -0.994525, 0.902, -0.128, -0.746998)
+transform = Transform3D(-0.995275, 0.00536888, -0.0969483, 0.00159157, 0.999238, 0.0389974, 0.0970838, 0.0386589, -0.994525, 0.902, -0.128, -0.747012)
 
 [node name="TT Handgun" parent="Head/Camera3D/GunManager/Gun Attach Point" instance=ExtResource("3_d5hyq")]
-transform = Transform3D(-0.995287, -0.00219858, 0.0969483, 0.00159134, 0.999238, 0.0389974, -0.0969602, 0.0389679, -0.994525, -0.902, -0.128, -0.747012)
+transform = Transform3D(-0.995287, -0.00219855, 0.0969482, 0.00159134, 0.999238, 0.0389972, -0.0969601, 0.0389677, -0.994525, -0.902, -0.128, -0.747002)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D/GunManager/Gun Attach Point"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.128, -0.655286)
@@ -75,13 +75,20 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68151, -0.422196)
 script = ExtResource("2_f42n4")
 
 [node name="1911" parent="Head/Camera3D/GunManager/Gun Attach Point/Gun Attach Point3" instance=ExtResource("2_e3hbq")]
-transform = Transform3D(-0.994052, -0.011922, -0.10825, 0.00158049, 0.992306, -0.1238, 0.108893, -0.123235, -0.986384, 0.968401, -0.354, -0.75364)
+transform = Transform3D(-0.994052, -0.0119223, -0.108251, 0.00158049, 0.992306, -0.123801, 0.108894, -0.123236, -0.986383, 0.968401, -0.353995, -0.753705)
 
 [node name="TT Handgun" parent="Head/Camera3D/GunManager/Gun Attach Point/Gun Attach Point3" instance=ExtResource("3_d5hyq")]
-transform = Transform3D(-0.99537, 0.0134018, 0.0951834, 0.00158033, 0.992381, -0.1232, -0.0961094, -0.122479, -0.987806, -0.855653, -0.354, -0.697897)
+transform = Transform3D(-0.99537, 0.0134018, 0.0951834, 0.00158033, 0.992381, -0.123201, -0.0961094, -0.12248, -0.987806, -0.855653, -0.353995, -0.697897)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D/GunManager/Gun Attach Point/Gun Attach Point3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0667264, -0.354, -0.57691)
+
+[node name="PlayerAim" type="RayCast3D" parent="Head/Camera3D/GunManager"]
+transform = Transform3D(-1, 0, 8.74228e-08, -3.38935e-22, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+target_position = Vector3(0, 0, 200)
+collision_mask = 17
+hit_from_inside = true
+hit_back_faces = false
 
 [node name="GunLookPoint" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)

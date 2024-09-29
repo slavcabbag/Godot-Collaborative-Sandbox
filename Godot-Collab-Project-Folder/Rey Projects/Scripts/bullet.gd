@@ -6,6 +6,9 @@ const SPEED = 40.0
 @onready var ray = $RayCast3D
 @onready var particles = $GPUParticles3D
 
+var switch = 1
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,5 +21,14 @@ func _process(delta):
 	if ray.is_colliding():
 		mesh.visible = false
 		particles.emitting = true
+		print(str(ray.get_collider().get_parent().get_parent().get_child(2)))
+		
+
+		ray.enabled = false
+		
+		
+		if ray.get_collider().get_parent().get_parent().get_child(2).is_in_group("enemy"):
+			ray.get_collider().get_parent().get_parent().get_child(2).hit()
+
 		await get_tree().create_timer(1.0).timeout
 		queue_free()

@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 var player = null
 var state_machine 
+var health = 10
 
 var next_nav_point
 
@@ -13,6 +14,8 @@ var frames_till_calc_navigation = 5 #navigation calculates route every blank fra
 
 const SPEED = 2.0
 const ATTACK_RANGE = 2.5
+
+
 
 @export var player_path:= "/root/World/Player" 
 
@@ -82,3 +85,9 @@ func call_navigation_every_blank_frames():
 	else:
 		return false
 		
+
+
+func _on_collision_shape_3d_body_part_hit(damage):
+	health -= damage
+	if health <= 0:
+		queue_free()

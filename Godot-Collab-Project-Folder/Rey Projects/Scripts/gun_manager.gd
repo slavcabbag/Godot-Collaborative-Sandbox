@@ -24,7 +24,6 @@ var old_aim_position = Vector3(0,0,0)
 var distance
 
 
-@onready var temp_label = $"../TempLabel"
 
 var two_fire_burst = false
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +36,6 @@ func _ready():
 func _process(delta):
 	distance = player_aim.get_collision_point().distance_to(get_parent().get_parent().position)
 
-	temp_label.text = str(player_aim.to_local(player.global_position))
 	
 	
 	player_aim.force_raycast_update()

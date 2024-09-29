@@ -40,12 +40,9 @@ func _process(delta):
 	temp_label.text = str(player_aim.to_local(player.global_position))
 	
 	
-	#if(gun_look_point.global_position.direction_to(get_parent().position) !=)
 	player_aim.force_raycast_update()
 	if player_aim.is_colliding():
 		gun_look_point.global_position = lerp(gun_look_point.global_position,player_aim.get_collision_point(), delta*11) 
-	#gun_look_point.position = Vector3(0,0,-distance*0.8)
-	
 	var instance
 	if two_fire_burst:
 			

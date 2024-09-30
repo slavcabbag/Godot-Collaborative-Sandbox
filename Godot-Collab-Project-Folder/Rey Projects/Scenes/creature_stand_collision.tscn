@@ -31,8 +31,9 @@ shape = SubResource("CylinderShape3D_f7dcy")
 visible = false
 mesh = SubResource("CylinderMesh_b71fw")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." groups=["doNotDetect"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29425, 0)
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(0.998302, 0, 0, 0, 0.998302, 0, 0, 0, 0.998302, 0, -0.73371, 0)

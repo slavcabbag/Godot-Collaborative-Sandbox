@@ -87,7 +87,12 @@ func call_navigation_every_blank_frames():
 		
 
 
-func _on_collision_shape_3d_body_part_hit(damage):
+
+
+
+
+
+func _on_area_3d_body_part_hit(damage):
 	health -= damage
 	if health <= 0:
 		queue_free()

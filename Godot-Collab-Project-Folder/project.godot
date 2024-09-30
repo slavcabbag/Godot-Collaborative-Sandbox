@@ -27,6 +27,10 @@ enabled=PackedStringArray("res://addons/simplegrasstextured/plugin.cfg")
 
 import/fbx/enabled=false
 
+[global_group]
+
+doNotDetect=""
+
 [input]
 
 Jump={

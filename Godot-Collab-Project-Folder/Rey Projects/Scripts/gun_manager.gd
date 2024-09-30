@@ -20,7 +20,6 @@ extends Node3D
 var bullet = load("res://Rey Projects/Scenes/bullet.tscn")
 @onready var player_aim = $PlayerAim
 @onready var gun_look_point = $"../GunLookPoint"
-var old_aim_position = Vector3(0,0,0)
 var distance
 
 
@@ -29,8 +28,6 @@ var two_fire_burst = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_aim.add_exception($"../../..") #exception is player collider
-
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

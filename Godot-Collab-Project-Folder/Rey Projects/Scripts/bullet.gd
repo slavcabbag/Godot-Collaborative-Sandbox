@@ -12,23 +12,21 @@ var switch = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += transform.basis * Vector3(0,0,-SPEED) * delta 
 	if ray.is_colliding():
+		var collider = ray.get_collider() 
 		mesh.visible = false
 		particles.emitting = true
-		print(str(ray.get_collider().get_parent().get_parent().get_child(2)))
-		
-
-		ray.enabled = false
-		
-		
-		if ray.get_collider().get_parent().get_parent().get_child(2).is_in_group("enemy"):
-			ray.get_collider().get_parent().get_parent().get_child(2).hit()
+		print(str(collider.name))
+		ray.enabled = false		
+		if ray.get_collider().is_in_group("enemy"):
+			print("true5")
+			ray.get_collider().hit()
 
 		await get_tree().create_timer(1.0).timeout
 		queue_free()

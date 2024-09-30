@@ -86,16 +86,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0667264, -0.354, -0.57691)
 [node name="PlayerAim" type="RayCast3D" parent="Head/Camera3D/GunManager"]
 transform = Transform3D(-1, 0, 8.74228e-08, -3.38935e-22, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 200)
-collision_mask = 17
+collision_mask = 25
 hit_from_inside = true
 hit_back_faces = false
+collide_with_areas = true
 
 [node name="GunLookPoint" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 script = ExtResource("6_c1uxq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/GunLookPoint"]
-transform = Transform3D(0.0701574, -1.05879e-22, 0, -1.05879e-22, 0.0701574, 0, 0, 0, 0.0701574, 0, 0, 0)
+transform = Transform3D(0.0701574, -1.05879e-22, 0, -1.05879e-22, 0.0701574, 0, 0, 0, 0.0701574, 0, 0, 0.2)
 mesh = SubResource("BoxMesh_i6apq")
 
 [node name="PlayerHealthManager" type="Node3D" parent="."]

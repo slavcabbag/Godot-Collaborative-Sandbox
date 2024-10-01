@@ -22,6 +22,11 @@ const ATTACK_RANGE = 2.5
 @onready var nav_agent = $NavigationAgent3D
 @onready var anim_tree = $AnimationTree
 
+
+@onready var boombox = $Armature/Skeleton3D/Boombox
+var boombox_health = 5
+var is_zombro_angry = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node(player_path)
@@ -46,7 +51,11 @@ func _process(delta):
 				# Navigation
 				nav_agent.set_target_position (player.global_transform.origin)
 			next_nav_point = nav_agent.get_next_path_position()
-			velocity = ((next_nav_point - (global_transform.origin)).normalized() * SPEED )
+			if !is_zombro_angry:
+				velocity = ((next_nav_point - (global_transform.origin)).normalized() * SPEED )
+			else:
+				velocity = ((next_nav_point - (global_transform.origin)).normalized() * SPEED *5 )
+				
 			rotation.y = lerp_angle(rotation.y,atan2(-velocity.x, -velocity.z), delta * 10.0)
 			#look_at(Vector3(global_position.x + velocity.x, global_position.y, global_position.z+velocity.z), Vector3.UP)
 		"Zombie Attack 2":
@@ -96,3 +105,10 @@ func _on_area_3d_body_part_hit(damage):
 	health -= damage
 	if health <= 0:
 		queue_free()
+
+
+func _on_area_3d_boombox_hit(damage):
+	boombox_health -=damage
+	if boombox_health <=0:
+		boombox.queue_free()
+		is_zombro_angry = true

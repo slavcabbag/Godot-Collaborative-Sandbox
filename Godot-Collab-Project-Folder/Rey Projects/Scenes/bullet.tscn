@@ -40,7 +40,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_d1c2p")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(0.595, 0, 0, 0, 0.595, 0, 0, 0, 0.595, 0, 0, 0)
 target_position = Vector3(0, 0, -1)
-collision_mask = 249
+collision_mask = 233
 hit_from_inside = true
 collide_with_areas = true
 

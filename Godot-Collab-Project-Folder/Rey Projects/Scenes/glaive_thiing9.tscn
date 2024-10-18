@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbq1lxk0kk72e"]
+
+[ext_resource type="PackedScene" uid="uid://c4qiue6x5besu" path="res://Rey Projects/Assets/Glaive Thiing9(holes-in-faces-and-normals-flipped).glb" id="1_uibeh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppdbv"]
+albedo_color = Color(0.316604, 0.217537, 0, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_706rh"]
+albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
+metallic = 0.75
+metallic_specular = 1.0
+roughness = 0.61
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnluu"]
+albedo_color = Color(0.650129, 0.650128, 0.650128, 1)
+metallic = 0.6
+metallic_specular = 1.0
+roughness = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqko1"]
+albedo_color = Color(0.65098, 0.65098, 0.65098, 1)
+metallic = 0.68
+metallic_specular = 1.0
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7ot7"]
+albedo_color = Color(0.3304, 0.227655, 0, 1)
+roughness = 0.75
+
+[node name="Glaive Thiing9(holes-in-faces-and-normals-flipped)" instance=ExtResource("1_uibeh")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Handle" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ppdbv")
+
+[node name="BladeNail" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_706rh")
+
+[node name="GlaiveThiingBlade" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rnluu")
+
+[node name="BladeNailHead" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_706rh")
+
+[node name="LMetalHandle" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jqko1")
+
+[node name="BladeAttach" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_706rh")
+
+[node name="RMetalHandle" parent="." index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jqko1")
+
+[node name="HandleLoops" parent="." index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_706rh")
+
+[node name="HandlePommel" parent="." index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o7ot7")

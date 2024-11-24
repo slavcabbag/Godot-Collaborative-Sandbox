@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=4 uid="uid://bq6tu1ny2ph32"]
 
-[ext_resource type="Texture2D" uid="uid://dougenqbcy2bv" path="res://Rey Projects/Assets/Models/Guns/Guns Texture (1).png" id="1_oib16"]
+[ext_resource type="Texture2D" uid="uid://u3dyhx3tms3q" path="res://Rey Projects/Assets/Models/Guns/Guns Texture (1).png" id="1_oib16"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnafa"]
 resource_name = "UV"

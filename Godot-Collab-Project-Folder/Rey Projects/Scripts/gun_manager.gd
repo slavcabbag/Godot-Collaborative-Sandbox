@@ -68,11 +68,13 @@ func _process(delta):
 				anim_1911.play("1911_shoot")
 				gun_shoot(gun_barrel_1911)
 				
-				await get_tree().create_timer(0.07).timeout
-				top_handgun_anim.play("TT_Handgun_Shoot")
-				gun_shoot(topgun_barrel_handgun)
-				top_anim_1911.play("1911_shoot")
-				gun_shoot(topgun_barrel_1911)
+				print(_1911.get_parent().get_child(3).name)
+				extra_guns_shoot(_1911.get_parent().get_child(3)) #gona for loop for attach points
+				#await get_tree().create_timer(0.07).timeout
+				#top_handgun_anim.play("TT_Handgun_Shoot")
+				#gun_shoot(topgun_barrel_handgun)
+				#top_anim_1911.play("1911_shoot")
+				#gun_shoot(topgun_barrel_1911)
 				
 
 
@@ -81,4 +83,17 @@ func gun_shoot(gun):
 	instance = bullet.instantiate()
 	instance.position = gun.global_position
 	instance.transform.basis = gun.global_transform.basis
-	get_parent().get_parent().get_parent().get_parent().add_child(instance)
+	get_tree().root.add_child(instance)
+
+#now I can add Gun attach points and make them actually shoot without hardcoding
+func extra_guns_shoot(GunAttachPoint):
+	var gun_1911 = GunAttachPoint.get_child(0).get_child(0)
+	#gun_1911_anim = gun_1911.get_child(1)
+	var gun_handgun = GunAttachPoint.get_child(1).get_child(0)
+	#gun_handgun_anim = gun_handgun.get_child(1)
+	
+	await get_tree().create_timer(0.07).timeout
+	gun_handgun.get_child(1).play("TT_Handgun_Shoot")
+	gun_shoot(gun_handgun.get_child(2))
+	gun_1911.get_child(1).play("1911_shoot")
+	gun_shoot(gun_1911.get_child(2))

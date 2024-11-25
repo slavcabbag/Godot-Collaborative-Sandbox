@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://gxq3ya6lob3h"]
+
+[ext_resource type="Script" path="res://Rey Projects/Scripts/gun_secondary_mvment.gd" id="1_egik5"]
+[ext_resource type="PackedScene" uid="uid://bq6tu1ny2ph32" path="res://Rey Projects/Scenes/1911.tscn" id="2_ghk67"]
+[ext_resource type="PackedScene" uid="uid://ds2qucpoax6pd" path="res://Rey Projects/Scenes/TT Handgun.tscn" id="3_w16pc"]
+
+[node name="Gun Attach Point3" type="Node3D"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68151, -0.422196)
+script = ExtResource("1_egik5")
+
+[node name="1911" parent="." instance=ExtResource("2_ghk67")]
+transform = Transform3D(-0.994052, -0.0119223, -0.108251, 0.00158049, 0.992306, -0.123801, 0.108894, -0.123236, -0.986383, 0.968401, -0.353995, -0.753705)
+
+[node name="TT Handgun" parent="." instance=ExtResource("3_w16pc")]
+transform = Transform3D(-0.99537, 0.0134018, 0.0951834, 0.00158033, 0.992381, -0.123201, -0.0961094, -0.12248, -0.987806, -0.855653, -0.353995, -0.697897)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0667264, -0.354, -0.57691)

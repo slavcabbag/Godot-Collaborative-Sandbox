@@ -308,3 +308,6 @@ func hit(dir):
 	emit_signal("player_hit")
 	velocity += dir * HIT_STAGGER
 	
+
+	
+	

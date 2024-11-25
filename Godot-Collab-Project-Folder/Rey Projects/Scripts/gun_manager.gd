@@ -1,6 +1,7 @@
 extends Node3D
 @onready var player = $"../../.."
 
+
 @onready var _1911 = $"Gun Attach Point/1911"
 @onready var tt_handgun = $"Gun Attach Point/TT Handgun"
 @onready var top_1911 = $"Gun Attach Point/Gun Attach Point3/1911"
@@ -68,7 +69,8 @@ func _process(delta):
 				anim_1911.play("1911_shoot")
 				gun_shoot(gun_barrel_1911)
 				
-				print(_1911.get_parent().get_child(3).name)
+				
+				
 				extra_guns_shoot(_1911.get_parent().get_child(3)) #gona for loop for attach points
 				#await get_tree().create_timer(0.07).timeout
 				#top_handgun_anim.play("TT_Handgun_Shoot")
@@ -92,8 +94,21 @@ func extra_guns_shoot(GunAttachPoint):
 	var gun_handgun = GunAttachPoint.get_child(1).get_child(0)
 	#gun_handgun_anim = gun_handgun.get_child(1)
 	
+	#gun_barrel = gun_.get_child(2)
+	
 	await get_tree().create_timer(0.07).timeout
 	gun_handgun.get_child(1).play("TT_Handgun_Shoot")
 	gun_shoot(gun_handgun.get_child(2))
 	gun_1911.get_child(1).play("1911_shoot")
 	gun_shoot(gun_1911.get_child(2))
+	
+func extra_gun_pickup(name):
+	var double_guns = load("res://Rey Projects/Scenes/extra_gun_attach_point.tscn")
+	if name == "double guns":
+		var instance = double_guns.instantiate()
+		instance.position = self.global_position
+		instance.transform.basis = player.global_transform.basis
+		get_tree().root.add_child(instance)
+		self.get_child(0).add_child(instance)
+		
+	

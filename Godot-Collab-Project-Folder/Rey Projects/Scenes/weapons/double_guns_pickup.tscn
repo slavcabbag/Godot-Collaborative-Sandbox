@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b12408j2y43m0"]
+
+[ext_resource type="Script" path="res://Rey Projects/Scripts/extra_double_guns_pickup.gd" id="1_a7861"]
+[ext_resource type="PackedScene" uid="uid://bq6tu1ny2ph32" path="res://Rey Projects/Scenes/1911.tscn" id="2_qn7c1"]
+[ext_resource type="Script" path="res://Rey Projects/Scripts/One-Use/Customization of Objects/SlowSpinningObject.gd" id="3_imou3"]
+[ext_resource type="PackedScene" uid="uid://ds2qucpoax6pd" path="res://Rey Projects/Scenes/TT Handgun.tscn" id="4_unbkw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ak1ln"]
+size = Vector3(1.43262, 1.66431, 1.25195)
+
+[node name="Gun Pickup" type="Node3D"]
+script = ExtResource("1_a7861")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("3_imou3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_ak1ln")
+
+[node name="1911" parent="Area3D" instance=ExtResource("2_qn7c1")]
+transform = Transform3D(0.994052, 0.0119223, 0.108251, 0.00158049, 0.992306, -0.123801, 0.108894, -0.123236, -0.986383, -0.883738, 1.47818, 0.108046)
+script = ExtResource("3_imou3")
+
+[node name="TT Handgun" parent="Area3D" instance=ExtResource("4_unbkw")]
+transform = Transform3D(0.99537, -0.0134018, -0.0951834, 0.00158033, 0.992381, -0.123201, -0.0961094, -0.12248, -0.987806, 0.755263, 1.47671, 0.162678)
+script = ExtResource("3_imou3")
